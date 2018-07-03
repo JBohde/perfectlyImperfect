@@ -1,0 +1,31 @@
+{
+  "name": "perf-imperf",
+  "version": "0.1.0",
+  "private": true,
+  "description": "for use with Perfectly Imperfect",
+  "main": "server.js",
+  "author": "Joshua Bohde",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.4",
+    "express-session": "^1.15.6",
+    "history": "^4.7.2",
+    "moment": "^2.22.1",
+    "mongoose": "^5.0.15",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js"
+  }
+}
