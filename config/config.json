@@ -2,14 +2,14 @@
     "development": {
       "username": "user",
       "password": "password",
-      "database": "imperfect",
+      "database": "imperfect_db",
       "host": "localhost",
       "dialect": "mysql"
     },
     "test": {
       "username": "user",
       "password": "password",
-      "database": "imperfect",
+      "database": "imperfect_db",
       "host": "localhost",
       "dialect": "mysql"
     },
