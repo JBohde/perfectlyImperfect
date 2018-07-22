@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./Admin.css";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
+import Input from "../Input";
+import Button from "../Button";
 
 class Admin extends React.Component {
 
     state = {
-
+        blog_title: "",
+        blog_text: ""
     }
 
     onChange = (e) => {
@@ -16,10 +18,20 @@ class Admin extends React.Component {
         });
     }
 
-    onSubmit = (e) => {
-        {/* str.replace(new RegExp('\r?\n','g'), '<br />'); */}
-        let blog = document.getElementById('blog').value.replace(/\n/g, "<br />");
-        console.log(blog);
+    submitBlog = (e) => {
+        const blogObj = { user_id: id, title: this.state.blog_title, body: this.state.blog_text.replace(/\n/g, "<br />") };
+        console.log(blogObj);
+        axios.post(`/api/perfectlyimperfect/user/blogs/${id}`, blogObj)
+            .then(res => {
+                this.setState({ blog_text: "" });
+            })
+            .then(() => {
+                axios.get(`/api/perfectlyimperfect/user/${this.props.match.params.id}`)
+                    .then(res => {
+                        this.setState(res.data);
+                    })
+            })
+      .catch(err => console.log(err));
     }
 
 
@@ -33,13 +45,19 @@ class Admin extends React.Component {
                 <Link to="/cart/:id">CART</Link>
                 <div>
                 <form
-                    // onSubmit={onSubmit}
+                    // submitBlog={submitBlog}
                     // id={props.blog_id}
                 >
                     <Input
-                    //   name="blog_text"
-                    //   value={props.blog_text}
-                    //   onChange={props.onChange}
+                      name="blog_title"
+                      value={this.state.blog_title}
+                      onChange={this.onChange}
+                      placeholder="Blog Title"
+                    />
+                    <Input
+                      name="blog_text"
+                      value={this.state.blog_text}
+                      onChange={this.onChange}
                       placeholder="Write a blog..."
                     />
                     <br />
