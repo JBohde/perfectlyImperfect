@@ -3,7 +3,7 @@ const blogController = require("../controllers/blogController");
 // Routes
 // =============================================================
 
-  router.route("/perfectlyimperfect/posts")
+  router.route("/perfectlyimperfect/admin/posts")
     .get(blogController.findAll) //get all blog posts
     .post(blogController.addPost) //add a new post
     .put(blogController.update) // update with new post

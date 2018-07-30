@@ -1,0 +1,34 @@
+const mongoose = require("mongoose");
+// Save a reference to the Schema constructor
+var Schema = mongoose.Schema;
+
+const blogPost = new mongoose.Schema({
+      author: {
+        type: String,
+        require: true,
+        default: "Ben Gear"
+      },
+      title: {
+        type: String,
+        require: true,
+      },
+      body: {
+        type: String,
+        require: true,
+      },
+      published: {
+        type: Date,
+      },
+      category: {
+        type: String,
+        default: "Personal"
+      },
+      keywords: Array,
+      comments: [{
+        type: Schema.Types.ObjectId,
+        ref: "Comments"
+    }]
+    
+  });
+
+  module.exports = mongoose.model("BlogPost", blogPost);

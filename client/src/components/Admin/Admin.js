@@ -4,29 +4,41 @@ import axios from "axios";
 import "./Admin.css";
 import Input from "../Input";
 import Button from "../Button";
+import BlogCard from "../BlogCard";
 
 class Admin extends React.Component {
 
     state = {
+        data: "",
+        author: "Ben Gear",
         blog_title: "",
         blog_text: ""
+    }
+
+    componentDidMount () {
+        axios.get(`/api/perfectlyimperfect/admin/posts`)
+        .then(res => {
+            this.setState(res.data);
+            console.log(res.data);
+        })
     }
 
     onChange = (e) => {
         this.setState({
           [e.target.name]: e.target.value
         });
+        // console.log(this.state);
     }
 
     submitBlog = (e) => {
-        const blogObj = { user_id: id, title: this.state.blog_title, body: this.state.blog_text.replace(/\n/g, "<br />") };
+        const blogObj = { author: this.state.author, title: this.state.blog_title, body: this.state.blog_text.replace(/\n/g, "<br />") };
         console.log(blogObj);
-        axios.post(`/api/perfectlyimperfect/user/blogs/${id}`, blogObj)
+        axios.post(`/api/perfectlyimperfect/admin/posts`, blogObj)
             .then(res => {
-                this.setState({ blog_text: "" });
+                this.setState({ blog_title: "", blog_text: "" });
             })
             .then(() => {
-                axios.get(`/api/perfectlyimperfect/user/${this.props.match.params.id}`)
+                axios.get(`/api/perfectlyimperfect/admin/posts`)
                     .then(res => {
                         this.setState(res.data);
                     })
@@ -64,9 +76,16 @@ class Admin extends React.Component {
                 </form>
                 <Button
                     type="success"
-                >SUBMIT</Button>
+                    value="Submit"
+                    onClick={this.submitBlog.bind(this)}
+                    label="SUBMIT"
+                >
+                </Button>
                 </div>
-                
+               <BlogCard
+                title="HERE IT IS!!!"
+                label="ACTION 1"
+               ></BlogCard>
             </div>
         )
     }

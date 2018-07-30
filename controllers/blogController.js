@@ -7,7 +7,8 @@ module.exports = {
 
   // GET route for getting all of the posts
   findAll: function(req, res) {
-    db.Post.findAll({})
+    db.BlogPost
+    .find({})
       .then(function(dbPost) {
         res.json(dbPost);
       })
@@ -15,8 +16,8 @@ module.exports = {
   },
 
   // Get route for returning posts of a specific category
-  findAll: function(req, res) {
-    db.Post.findAll({
+  findByCategory: function(req, res) {
+    db.BlogPost.find({
       where: { category: req.params.category }
     })
       .then(function(dbPost) {
@@ -27,7 +28,7 @@ module.exports = {
 
   // GET route for retrieving a single post
   findOne: function(req, res) {
-    db.Post.findOne({
+    db.BlogPost.findOne({
       where: { id: req.params.id }
     })
       .then(function(dbPost) {
@@ -39,7 +40,8 @@ module.exports = {
   // POST route for saving a new post
   addPost: function(req, res) {
     console.log(req.body);
-    db.Post.create({
+    db.BlogPost.create({
+      author: req.body.author,
       title: req.body.title,
       body: req.body.body,
       category: req.body.category
@@ -52,7 +54,7 @@ module.exports = {
 
   // DELETE route for deleting posts
   deletePost: function(req, res) {
-    db.Post.destroy({
+    db.BlogPost.destroy({
       where: {id: req.params.id}
     })
       .then(function(dbPost) {
@@ -63,7 +65,7 @@ module.exports = {
 
   // PUT route for updating posts
   update: function(req, res) {
-    db.Post.update(req.body,
+    db.BlogPost.update(req.body,
       {  where: { id: req.body.id } })
       .then(function(dbPost) {
         res.json(dbPost);

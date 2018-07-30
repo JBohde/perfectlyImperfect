@@ -5,6 +5,7 @@ const routes = require("./routes/imperfectAPI");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+// const Sequelize = require('sequelize');
 // const session = require("express-session");
 
 // var sess = {

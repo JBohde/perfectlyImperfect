@@ -5,13 +5,14 @@ const linkStyle = {
 }
 
 // Destructuring the type, className, children and onClick props, applying them to the button element
-const Button = ({ type = "default", className, children, onClick }) => (
+const Button =props => (
     <button
         style={linkStyle}
-        onClick={onClick}
-        className={["btn btn-lg", `btn-${type}`, className].join(" ")}
+        value={props.value}
+        onClick={props.onClick}
+        className={[`btn btn-lg btn-${props.type}`]}
     >
-        {children}
+    {props.label}
     </button>
 );
 

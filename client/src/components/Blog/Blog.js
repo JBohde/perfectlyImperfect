@@ -5,7 +5,10 @@ import "./Blog.css";
 class Blog extends React.Component {
 
     state = {
-
+        user_id: this.props.match.params.id,
+        first_name: "",
+        last_name: "",
+        password: "",
     }
 
     render() {
