@@ -1,17 +1,20 @@
 import React from "react";
+import Input from 'react-toolbox/lib/input';
 
-const linkStyle = {
-    color: "black",
-}
 
-// This component lets us use a bootstrap input element without worrying about class names or manually wrapping the input with a form-group div
-// All of the props passed to this component are spread onto the input element
-const Input = props => (
-    <div className="form-group row">
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <input className="form-control" type="text" {...props} style={linkStyle} />
-        </div>
-    </div>
-);
-
-export default Input;
+class InputTest extends React.Component {
+	state = { name: '', phone: '', multiline: '', email: '', hint: '', label: '' };
+  
+	handleChange = (name, value) => {
+	  this.setState({...this.state, [name]: value});
+	};
+  
+	render () {
+	  return (
+		<section>
+		  <Input type='text' multiline label='Multiline' value={this.state.multiline} onChange={this.handleChange.bind(this, 'multiline')} />
+		</section>
+	  );
+	}
+  }
+export default InputTest;

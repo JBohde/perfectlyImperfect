@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Admin.css";
-import Input from "../Input";
+import InputTest from "../Input";
 import Button from "../Button";
 import BlogCard from "../BlogCard";
 
@@ -56,7 +56,7 @@ class Admin extends React.Component {
                 <Link to="/shop/:id">SHOP</Link>
                 <Link to="/cart/:id">CART</Link>
                 <div>
-                <form>
+                {/* <form>
                     <Input
                       name="blog_title"
                       value={this.state.blog_title}
@@ -70,7 +70,8 @@ class Admin extends React.Component {
                       placeholder="Write a blog..."
                     />
                     <br />
-                </form>
+                </form> */}
+                <InputTest />
                 <Button
                     type="success"
                     value="Submit"
