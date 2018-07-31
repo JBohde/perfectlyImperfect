@@ -56,10 +56,7 @@ class Admin extends React.Component {
                 <Link to="/shop/:id">SHOP</Link>
                 <Link to="/cart/:id">CART</Link>
                 <div>
-                <form
-                    // submitBlog={submitBlog}
-                    // id={props.blog_id}
-                >
+                <form>
                     <Input
                       name="blog_title"
                       value={this.state.blog_title}
@@ -82,10 +79,7 @@ class Admin extends React.Component {
                 >
                 </Button>
                 </div>
-               <BlogCard
-                title="HERE IT IS!!!"
-                label="ACTION 1"
-               ></BlogCard>
+               <BlogCard/>
             </div>
         )
     }

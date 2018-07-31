@@ -12,7 +12,9 @@
         "eject": "react-scripts eject"
     },
     "dependencies": {
+        "@material-ui/core": "^1.4.2",
         "axios": "^0.18.0",
+        "contentful": "^6.1.2",
         "moment": "^2.22.2",
         "react-css-themr": "^2.1.2",
         "react-toolbox": "2.0.0-beta.12"

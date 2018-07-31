@@ -18,6 +18,7 @@ const blogPost = new mongoose.Schema({
       },
       published: {
         type: Date,
+        default: Date.now
       },
       category: {
         type: String,
