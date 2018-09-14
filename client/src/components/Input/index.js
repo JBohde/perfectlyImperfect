@@ -2,8 +2,8 @@ import React from "react";
 import Input from 'react-toolbox/lib/input';
 
 
-class InputTest extends React.Component {
-	state = { name: '', phone: '', multiline: '', email: '', hint: '', label: '' };
+class MyInput extends React.Component {
+	state = {};
   
 	handleChange = (name, value) => {
 	  this.setState({...this.state, [name]: value});
@@ -12,9 +12,21 @@ class InputTest extends React.Component {
 	render () {
 	  return (
 		<section>
-		  <Input type='text' multiline label='Multiline' value={this.state.multiline} onChange={this.handleChange.bind(this, 'multiline')} />
+		  <Input type='text' multiline label={this.props.multiline} value={this.state.multiline} onChange={this.handleChange.bind(this, 'multiline')} />
 		</section>
 	  );
 	}
   }
-export default InputTest;
+
+const linkStyle = {
+	// color: "black",
+	// boxShadow: "5px 5px 10px black"
+}
+
+const MyInput = props => (
+	<div className="form-group row">	
+		<textarea type="text" name={props.name} value={props.value} rows={props.rows} cols={props.cols} placeholder={props.placeholder} onChange={props.onChange} />
+	</div>
+);
+
+export default MyInput;

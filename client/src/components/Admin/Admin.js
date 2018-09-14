@@ -2,18 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Admin.css";
-import InputTest from "../Input";
+// import MyInput from "../Input";
+import MyEditor from "../MyEditor";
 import Button from "../Button";
 import BlogCard from "../BlogCard";
+// import 'draft-js/dist/Draft.css';
+
 
 class Admin extends React.Component {
 
-    state = {
-        data: "",
-        author: "Ben Gear",
-        blog_title: "",
-        blog_text: ""
-    }
+    // state = {
+    //     data: "",
+    //     author: "Ben Gear",
+    //     blog_title: "",
+    //     blog_text: ""
+    // }
 
     componentDidMount () {
         axios.get(`/api/perfectlyimperfect/admin/posts`)
@@ -23,12 +26,12 @@ class Admin extends React.Component {
         })
     }
 
-    onChange = (e) => {
-        this.setState({
-          [e.target.name]: e.target.value
-        });
-        // console.log(this.state);
-    }
+    // onChange = (e) => {
+    //     this.setState({
+    //       [e.target.name]: e.target.value
+    //     });
+    //     // console.log(this.state);
+    // }
 
     submitBlog = (e) => {
         const blogObj = { author: this.state.author, title: this.state.blog_title, body: this.state.blog_text.replace(/\n/g, "<br />") };
@@ -56,14 +59,17 @@ class Admin extends React.Component {
                 <Link to="/shop/:id">SHOP</Link>
                 <Link to="/cart/:id">CART</Link>
                 <div>
+                <MyEditor />
                 {/* <form>
-                    <Input
+                    <MyInput
                       name="blog_title"
                       value={this.state.blog_title}
+                      rows="10"
+                      cols="50"
                       onChange={this.onChange}
                       placeholder="Blog Title"
                     />
-                    <Input
+                    <MyInput
                       name="blog_text"
                       value={this.state.blog_text}
                       onChange={this.onChange}
@@ -71,7 +77,12 @@ class Admin extends React.Component {
                     />
                     <br />
                 </form> */}
-                <InputTest />
+                {/* <MyInput
+                    name="blog_text"
+                    value={this.state.blog_text}
+                    onChange={this.onChange}
+                    placeholder="Write a blog..."
+                 /> */}
                 <Button
                     type="success"
                     value="Submit"
