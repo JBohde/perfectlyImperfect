@@ -1,31 +1,21 @@
 import React from "react";
-import Input from 'react-toolbox/lib/input';
-
-
-class MyInput extends React.Component {
-	state = {};
-  
-	handleChange = (name, value) => {
-	  this.setState({...this.state, [name]: value});
-	};
-  
-	render () {
-	  return (
-		<section>
-		  <Input type='text' multiline label={this.props.multiline} value={this.state.multiline} onChange={this.handleChange.bind(this, 'multiline')} />
-		</section>
-	  );
-	}
-  }
+// import Input from 'react-toolbox/lib/input';
 
 const linkStyle = {
-	// color: "black",
-	// boxShadow: "5px 5px 10px black"
+	width: '100%',
+	boxSizing: 'border-box',
+	border: '1px solid #ddd',
+	cursor: 'text',
+	padding: '8px',
+	borderRadius: '2px',
+	marginBottom: '2em',
+	boxShadow: 'inset 0px 1px 8px -3px #ABABAB',
+	background: '#fefefe'
 }
 
 const MyInput = props => (
 	<div className="form-group row">	
-		<textarea type="text" name={props.name} value={props.value} rows={props.rows} cols={props.cols} placeholder={props.placeholder} onChange={props.onChange} />
+		<input type="text" name={props.name} value={props.value} placeholder={props.placeholder} style={linkStyle} onChange={props.onChange} />
 	</div>
 );
 

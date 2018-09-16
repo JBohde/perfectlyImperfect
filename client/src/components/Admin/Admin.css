@@ -1,3 +1,7 @@
 .container {
     margin: 5em;
 }
+
+.editor-wrapper {
+    width: 750px;
+}

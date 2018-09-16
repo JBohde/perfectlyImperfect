@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Admin.css";
-// import MyInput from "../Input";
+import MyInput from "../Input";
 import MyEditor from "../MyEditor";
+import Uploader from "../FileUploader";
 import Button from "../Button";
 import BlogCard from "../BlogCard";
 // import 'draft-js/dist/Draft.css';
@@ -11,12 +12,12 @@ import BlogCard from "../BlogCard";
 
 class Admin extends React.Component {
 
-    // state = {
-    //     data: "",
-    //     author: "Ben Gear",
-    //     blog_title: "",
-    //     blog_text: ""
-    // }
+    state = {
+        data: "",
+        author: "Ben Gear",
+        blog_title: "",
+        blog_text: ""
+    }
 
     componentDidMount () {
         axios.get(`/api/perfectlyimperfect/admin/posts`)
@@ -25,13 +26,6 @@ class Admin extends React.Component {
             console.log(res.data);
         })
     }
-
-    // onChange = (e) => {
-    //     this.setState({
-    //       [e.target.name]: e.target.value
-    //     });
-    //     // console.log(this.state);
-    // }
 
     submitBlog = (e) => {
         const blogObj = { author: this.state.author, title: this.state.blog_title, body: this.state.blog_text.replace(/\n/g, "<br />") };
@@ -58,31 +52,17 @@ class Admin extends React.Component {
                 <Link to="/">HOME</Link>
                 <Link to="/shop/:id">SHOP</Link>
                 <Link to="/cart/:id">CART</Link>
-                <div>
-                <MyEditor />
-                {/* <form>
+                <div className="editor-wrapper">
+                <form>
                     <MyInput
                       name="blog_title"
                       value={this.state.blog_title}
-                      rows="10"
-                      cols="50"
                       onChange={this.onChange}
                       placeholder="Blog Title"
                     />
-                    <MyInput
-                      name="blog_text"
-                      value={this.state.blog_text}
-                      onChange={this.onChange}
-                      placeholder="Write a blog..."
-                    />
                     <br />
-                </form> */}
-                {/* <MyInput
-                    name="blog_text"
-                    value={this.state.blog_text}
-                    onChange={this.onChange}
-                    placeholder="Write a blog..."
-                 /> */}
+                </form>
+                <MyEditor />
                 <Button
                     type="success"
                     value="Submit"
@@ -91,6 +71,7 @@ class Admin extends React.Component {
                 >
                 </Button>
                 </div>
+                <Uploader />
                <BlogCard/>
             </div>
         )
