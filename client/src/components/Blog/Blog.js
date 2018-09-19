@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import NavHeader from "../NavHeader";
 import "./Blog.css";
+// import BlogCard from "../BlogCard";
 
 class Blog extends React.Component {
 
@@ -13,13 +14,18 @@ class Blog extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <h1>THIS IS THE BLOG PAGE</h1>
-                <Link to="/">HOME</Link>
-                <Link to="/shop/:id">SHOP</Link>
-                <Link to="/cart/:id">CART</Link>
+            <div>
+                <NavHeader />
+                <div className="container">
+                    <h1>THIS IS THE BLOG PAGE</h1>
+                </div>
+                {/* <BlogCard
+                  src={blog.blog_img}
+                  blog_title={blog.blog_title}
+                  blog_text={blog.blog_text}
+                /> */}
             </div>
-        )
+        ) 
     }
 }
 

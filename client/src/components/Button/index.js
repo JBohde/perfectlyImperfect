@@ -1,16 +1,14 @@
 import React from "react";
 
-const linkStyle = {
-    color: "black",
-}
-
 // Destructuring the type, className, children and onClick props, applying them to the button element
 const Button = props => (
     <button
-    style={linkStyle}
+    type={"button"}
+    className={[`btn btn-${props.class}`]}
+    id={props.id}
     value={props.value}
     onClick={props.onClick}
-    className={[`btn btn-lg btn-${props.type}`]}
+    role={props.role}
     >
     {props.label}
     </button>

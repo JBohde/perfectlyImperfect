@@ -1,7 +1,5 @@
-.container {
-    margin: 5em;
+.editor-wrapper,
+.uploader-wrapper {
+    padding: 15px;
 }
 
-.editor-wrapper {
-    width: 750px;
-}

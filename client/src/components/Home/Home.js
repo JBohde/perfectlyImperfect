@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import NavHeader from "../NavHeader";
 import "./Home.css";
 
 class Home extends React.Component {
@@ -10,12 +10,12 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div className="container">
+        <div>
+            <NavHeader />
+            <div className="video-display">
                 <h1>THIS IS THE HOME PAGE</h1>
-                <Link to="/blog">BLOG</Link>
-                <Link to="/shop/:id">SHOP</Link>
-                <Link to="/cart/:id">CART</Link>
             </div>
+        </div>
         )
     }
 }

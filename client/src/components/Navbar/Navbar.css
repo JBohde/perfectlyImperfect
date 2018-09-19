@@ -1,4 +1,8 @@
-.MuiToolbar-regular-39 {
+nav.navbar.navbar-expand-lg.navbar-light {
     background-color: #4B9CD3;
     color: #fff;
+}
+
+.navbar-title {
+    text-align: center;
 }

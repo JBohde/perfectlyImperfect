@@ -6,9 +6,20 @@ import MyInput from "../Input";
 import MyEditor from "../MyEditor";
 import Uploader from "../FileUploader";
 import Button from "../Button";
-import BlogCard from "../BlogCard";
-// import 'draft-js/dist/Draft.css';
 
+// // import 'draft-js/dist/Draft.css';
+// const styles = theme => ({
+//     root: {
+//       flexGrow: 1,
+//     },
+//     paper: {
+//       height: 140,
+//       width: 100,
+//     },
+//     control: {
+//       padding: theme.spacing.unit * 2,
+//     },
+//   });
 
 class Admin extends React.Component {
 
@@ -16,7 +27,8 @@ class Admin extends React.Component {
         data: "",
         author: "Ben Gear",
         blog_title: "",
-        blog_text: ""
+        blog_text: "",
+        file: 'http://placehold.it/350x350'
     }
 
     componentDidMount () {
@@ -44,35 +56,42 @@ class Admin extends React.Component {
     }
 
 
-
     render() {
         return (
-            <div className="container">
+            <div>
                 <h1>THIS IS THE ADMIN PAGE</h1>
                 <Link to="/">HOME</Link>
+                <Link to="/blog">BLOG</Link>
                 <Link to="/shop/:id">SHOP</Link>
                 <Link to="/cart/:id">CART</Link>
+                <div className="row">
+                <div className="col-12 col-md-8 col-lg-8">
                 <div className="editor-wrapper">
-                <form>
-                    <MyInput
-                      name="blog_title"
-                      value={this.state.blog_title}
-                      onChange={this.onChange}
-                      placeholder="Blog Title"
-                    />
-                    <br />
-                </form>
-                <MyEditor />
-                <Button
-                    type="success"
-                    value="Submit"
-                    onClick={this.submitBlog.bind(this)}
-                    label="SUBMIT"
-                >
-                </Button>
+                    <form>
+                        <MyInput
+                        name="blog_title"
+                        value={this.state.blog_title}
+                        onChange={this.onChange}
+                        placeholder="Blog Title"
+                        />
+                        <br />
+                    </form>
+                    <MyEditor />
+                    <Button
+                        type="success"
+                        value="Submit"
+                        onClick={this.submitBlog.bind(this)}
+                        label="SUBMIT"
+                    >
+                    </Button>
                 </div>
-                <Uploader />
-               <BlogCard/>
+                </div>
+                <div className="col-12 col-md-4 cold-lg-8">
+                <div className='uploader-wrapper'>
+                    <Uploader />
+                </div>
+                </div>
+                </div>
             </div>
         )
     }

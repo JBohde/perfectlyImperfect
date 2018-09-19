@@ -1,0 +1,19 @@
+a.navbar-link {
+    text-decoration: none;
+    margin: 5px;
+    color: #eee;
+}
+
+#seek {
+    font-size: 1.25em;
+    display: inline;
+}
+
+#subscribe {
+    float: right;
+}
+
+.link-container {
+    display: flex;
+    flex-direction: space-between;
+}
