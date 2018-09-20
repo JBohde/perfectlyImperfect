@@ -1,7 +1,14 @@
+.link-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
 a.navbar-link {
     text-decoration: none;
     margin: 5px;
-    color: #eee;
+    color: #000;
 }
 
 #seek {
@@ -9,11 +16,17 @@ a.navbar-link {
     display: inline;
 }
 
-#subscribe {
-    float: right;
+.navbar-social {
+    padding: 10px;
 }
 
-.link-container {
+.navbar-title {
+    padding: 10px;
+}
+
+.navbar-subscribe {
     display: flex;
-    flex-direction: space-between;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
