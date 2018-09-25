@@ -1,63 +1,28 @@
-/* eslint-disable react/no-multi-comp */
-import React from 'react';
-import 'draft-js-static-toolbar-plugin/lib/plugin.css';
-import Editor, { createEditorStateWithText } from 'draft-js-plugins-editor';
-import createToolbarPlugin, { Separator } from 'draft-js-static-toolbar-plugin';
-import {
-  ItalicButton,
-  BoldButton,
-  UnderlineButton,
-  UnorderedListButton,
-  OrderedListButton,
-} from 'draft-js-buttons';
-import editorStyles from './editorStyles.css';
+import React from 'react'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; 
+import './editorStyles.css';
+ class MyEditor extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { 
+      text: '' 
+    } // You can also pass a Quill Delta here
+    this.handleChange = this.handleChange.bind(this)
+  }
 
-
-const toolbarPlugin = createToolbarPlugin({
-  structure: [
-    BoldButton,
-    ItalicButton,
-    UnderlineButton,
-    Separator,
-    UnorderedListButton,
-    OrderedListButton,
-  ]
-});
-const { Toolbar } = toolbarPlugin;
-const plugins = [toolbarPlugin];
-const text = 'Write your blog here…';
-
-class MyEditor extends React.Component {
-
-  state = {
-    editorState: createEditorStateWithText(text),
-  };
-
-  onChange = (editorState) => {
-    this.setState({
-      editorState,
-    });
-  };
-
-  focus = () => {
-    this.editor.focus();
-  };
+  handleChange(value) {
+    this.setState({ text: value })
+  }
 
   render() {
     return (
-      <div>
-        <div className={editorStyles.editor} onClick={this.focus}>
-          <Toolbar />
-          <Editor
-            editorState={this.state.editorState}
-            onChange={this.onChange}
-            plugins={plugins}
-            ref={(element) => { this.editor = element; }}
-          />
-
-        </div>
-      </div>
-    );
+      <ReactQuill
+        theme="snow" 
+        value={this.state.text}
+        onChange={this.handleChange} 
+      />
+    )
   }
 }
 export default MyEditor;

@@ -7,6 +7,8 @@ import Blog from "./components/Blog";
 import Shop from "./components/Shop";
 import Cart from "./components/Cart";
 import Admin from "./components/Admin";
+import About from "./components/About";
+import Inspiration from "./components/Inspiration";
 // import MyEditor from "./components/MyEditor";
 // import logo from './logo.svg';
 import './App.css';
@@ -20,6 +22,8 @@ class App extends Component {
         <div className="App-content">
           <Route exact path="/" component={Home} />
           <Route path="/blog" component={Blog} />
+          <Route path="/inspiration" component={Inspiration} />
+          <Route path="/about" component={About} />
           <Route path="/shop/:id" component={Shop} />
           <Route path="/cart/:id" component={Cart} />
           <Route path="/admin" component={Admin} />

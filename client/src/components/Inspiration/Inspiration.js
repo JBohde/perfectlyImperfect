@@ -1,8 +1,8 @@
 import React from "react";
 import NavHeader from "../NavHeader";
-import "./Home.css";
+import "./Inspiration.css";
 
-class Home extends React.Component {
+class Inspiration extends React.Component {
 
     state = {
 
@@ -13,11 +13,11 @@ class Home extends React.Component {
         <div>
             <NavHeader />
             <div className="video-display">
-                <h1 id="home">THIS IS THE HOME PAGE</h1>
+                <h1 id="inspiration">THIS IS THE INSPIRATION PAGE</h1>
             </div>
         </div>
         )
     }
 }
 
-export default Home;
+export default Inspiration;

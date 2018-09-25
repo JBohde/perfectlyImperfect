@@ -1,190 +1,137 @@
+// import React from "react";
+// import { Editor, EditorState, RichUtils } from "draft-js";
 
-class MyEditorTwo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {editorState: EditorState.createEmpty()};
+// class MyEditor extends React.Component {
+// 	constructor(props) {
+// 		super(props);
+// 		this.state = {
+// 			editorState: EditorState.createEmpty()
+// 		};
+// 	}
 
-    this.focus = () => this.refs.editor.focus();
-    this.onChange = (editorState) => this.setState({editorState});
+// 	onChange = editorState => {
+// 		this.setState({
+// 			editorState
+// 		});
+// 	};
 
-    this.handleKeyCommand = (command) => this._handleKeyCommand(command);
-    this.onTab = (e) => this._onTab(e);
-    this.toggleBlockType = (type) => this._toggleBlockType(type);
-    this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
-  }
+// 	handleKeyCommand = command => {
+// 		const newState = RichUtils.handleKeyCommand(
+// 			this.state.editorState,
+// 			command
+// 		);
+// 		if (newState) {
+// 			this.onChange(newState);
+// 			return "handled";
+// 		}
+// 		return "not-handled";
+// 	};
 
-  _handleKeyCommand(command) {
-    const {editorState} = this.state;
-    const newState = RichUtils.handleKeyCommand(editorState, command);
-    if (newState) {
-      this.onChange(newState);
-      return true;
-    }
-    return false;
-  }
+// 	onUnderlineClick = () => {
+// 		this.onChange(
+// 			RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE")
+// 		);
+// 	};
 
-  _onTab(e) {
-    const maxDepth = 4;
-    this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
-  }
+// 	onBoldClick = () => {
+// 		this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "BOLD"));
+// 	};
 
-  _toggleBlockType(blockType) {
-    this.onChange(
-      RichUtils.toggleBlockType(
-        this.state.editorState,
-        blockType
-      )
-    );
-  }
+// 	onItalicClick = () => {
+// 		this.onChange(
+// 			RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC")
+// 		);
+// 	};
 
-  _toggleInlineStyle(inlineStyle) {
-    this.onChange(
-      RichUtils.toggleInlineStyle(
-        this.state.editorState,
-        inlineStyle
-      )
-    );
-  }
+// 	render() {
+// 		return (
+// 			<div className="editorContainer">
+// 				<button onClick={this.onUnderlineClick}>U</button>
+// 				<button onClick={this.onBoldClick}>
+// 					<b>B</b>
+// 				</button>
+// 				<button onClick={this.onItalicClick}>
+// 					<em>I</em>
+// 				</button>
+// 				<div className="editors">
+// 					<Editor
+// 						editorState={this.state.editorState}
+// 						handleKeyCommand={this.handleKeyCommand}
+// 						onChange={this.onChange}
+// 					/>
+// 				</div>
+// 			</div>
+// 		);
+// 	}
+// }
 
-  render() {
-    const {editorState} = this.state;
+// export default MyEditor;
 
-    // If the user changes block type before entering any text, we can
-    // either style the placeholder or hide it. Let's just hide it now.
-    let className = 'RichEditor-editor';
-    var contentState = editorState.getCurrentContent();
-    if (!contentState.hasText()) {
-      if (contentState.getBlockMap().first().getType() !== 'unstyled') {
-        className += ' RichEditor-hidePlaceholder';
-      }
-    }
 
-    return (
-      <div className="RichEditor-root">
-        <BlockStyleControls
-          editorState={editorState}
-          onToggle={this.toggleBlockType}
-        />
-        <InlineStyleControls
-          editorState={editorState}
-          onToggle={this.toggleInlineStyle}
-        />
-        <div className={className} onClick={this.focus}>
-          <Editor
-            blockStyleFn={getBlockStyle}
-            customStyleMap={styleMap}
-            editorState={editorState}
-            handleKeyCommand={this.handleKeyCommand}
-            onChange={this.onChange}
-            onTab={this.onTab}
-            placeholder="Tell a story..."
-            ref="editor"
-            spellCheck={true}
-          />
-        </div>
-      </div>
-    );
-  }
-}
+/////////////////////////////////////////////////////////////////////////////////////////
 
-// Custom overrides for "code" style.
-const styleMap = {
-  CODE: {
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-    fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
-    fontSize: 16,
-    padding: 2,
-  },
-};
+/* eslint-disable react/no-multi-comp */
+// import React from 'react';
+// import 'draft-js-static-toolbar-plugin/lib/plugin.css';
+// import Editor, { createEditorStateWithText } from 'draft-js-plugins-editor';
+// import createToolbarPlugin, { Separator } from 'draft-js-static-toolbar-plugin';
+// import {
+//   ItalicButton,
+//   BoldButton,
+//   UnderlineButton,
+//   UnorderedListButton,
+//   OrderedListButton,
+// } from 'draft-js-buttons';
+// // import createLinkPlugin from 'draft-js-anchor-plugin';
+// import editorStyles from './editorStyles.css';
 
-function getBlockStyle(block) {
-  switch (block.getType()) {
-    case 'blockquote': return 'RichEditor-blockquote';
-    default: return null;
-  }
-}
+// // Here's your chance to pass in a configuration object (see below).
+// // const linkPlugin = createLinkPlugin();
+// const toolbarPlugin = createToolbarPlugin({
+//   structure: [
+//     BoldButton,
+//     ItalicButton,
+//     UnderlineButton,
+//     Separator,
+//     UnorderedListButton,
+//     OrderedListButton,
+//   ]
+// });
+// const { Toolbar } = toolbarPlugin;
+// const plugins = [toolbarPlugin];
+// const text = 'Write your blog here…';
 
-class StyleButton extends React.Component {
-  constructor() {
-    super();
-    this.onToggle = (e) => {
-      e.preventDefault();
-      this.props.onToggle(this.props.style);
-    };
-  }
+// class MyEditor extends React.Component {
 
-  render() {
-    let className = 'RichEditor-styleButton';
-    if (this.props.active) {
-      className += ' RichEditor-activeButton';
-    }
+//   state = {
+//     editorState: createEditorStateWithText(text),
+//   };
 
-    return (
-      <span className={className} onMouseDown={this.onToggle}>
-        {this.props.label}
-      </span>
-    );
-  }
-}
+//   onChange = (editorState) => {
+//     this.setState({
+//       editorState,
+//     });
+//   };
 
-const BLOCK_TYPES = [
-  {label: 'H1', style: 'header-one'},
-  {label: 'H2', style: 'header-two'},
-  {label: 'H3', style: 'header-three'},
-  {label: 'H4', style: 'header-four'},
-  {label: 'H5', style: 'header-five'},
-  {label: 'H6', style: 'header-six'},
-  {label: 'Blockquote', style: 'blockquote'},
-  {label: 'UL', style: 'unordered-list-item'},
-  {label: 'OL', style: 'ordered-list-item'},
-  {label: 'Code Block', style: 'code-block'},
-];
+//   focus = () => {
+//     this.editor.focus();
+//   };
 
-const BlockStyleControls = (props) => {
-  const {editorState} = props;
-  const selection = editorState.getSelection();
-  const blockType = editorState
-    .getCurrentContent()
-    .getBlockForKey(selection.getStartKey())
-    .getType();
+//   render() {
+//     return (
+//       <div>
+//         <div className={editorStyles.editor} onClick={this.focus}>
+//           <Toolbar />
+//           <Editor
+//             editorState={this.state.editorState}
+//             onChange={this.onChange}
+//             plugins={plugins}
+//             ref={(element) => { this.editor = element; }}
+//           />
 
-  return (
-    <div className="RichEditor-controls">
-      {BLOCK_TYPES.map((type) =>
-        <StyleButton
-          key={type.label}
-          active={type.style === blockType}
-          label={type.label}
-          onToggle={props.onToggle}
-          style={type.style}
-        />
-      )}
-    </div>
-  );
-};
-
-var INLINE_STYLES = [
-  {label: 'Bold', style: 'BOLD'},
-  {label: 'Italic', style: 'ITALIC'},
-  {label: 'Underline', style: 'UNDERLINE'},
-  {label: 'Monospace', style: 'CODE'},
-];
-
-const InlineStyleControls = (props) => {
-  var currentStyle = props.editorState.getCurrentInlineStyle();
-  return (
-    <div className="RichEditor-controls">
-      {INLINE_STYLES.map(type =>
-        <StyleButton
-          key={type.label}
-          active={currentStyle.has(type.style)}
-          label={type.label}
-          onToggle={props.onToggle}
-          style={type.style}
-        />
-      )}
-    </div>
-  );
-};
-
-export default MyEditorTwo;
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+// export default MyEditor;

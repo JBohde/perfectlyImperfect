@@ -1,14 +1,29 @@
 .link-container {
-    padding: 0;
+    padding: 10px;
     margin: 0;
     list-style: none;
     display: flex;
     justify-content: space-around;
 }
-a.navbar-link {
+
+.row.navbar-header-content {
+    padding: 50px;
+}
+
+#title {
+    font-weight: bold;
+}
+
+.nav-link {
+    display: block;
+    padding: .3rem 1rem;
+}
+
+a.navheader-link.nav-link,
+a#collasible-nav-dropdown {
     text-decoration: none;
     margin: 5px;
-    color: #000;
+    color: #000 !important;
 }
 
 #seek {
@@ -17,7 +32,17 @@ a.navbar-link {
 }
 
 .navbar-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
+}
+
+.social-img {
+    width: 35px;
+    height: 35px;
+    margin: 2px;
+    color: #4B9CD3;
 }
 
 .navbar-title {

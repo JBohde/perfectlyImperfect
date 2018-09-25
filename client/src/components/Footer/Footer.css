@@ -1,3 +1,16 @@
-footer {
-    color: blue;
+nav.footer.navbar.navbar-expand.navbar-light.fixed-sticky {
+    background-color: #eee;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-link {
+    margin: auto;
+}
+
+.footer-img {
+    width: 35px;
+    height: 35px;
+    margin: 3px;
 }

@@ -1,8 +1,38 @@
-nav.navbar.navbar-expand-lg.navbar-light {
-    background-color: #4B9CD3;
-    color: #fff;
+nav.justify-content-end.navbar.navbar-expand.navbar-light {
+    background-color: #4B9CD3 !important;
+    height: 75px;
+}
+
+.navbar-logo {
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+}
+
+#follow {
+    color: white;
+    margin: 5px;
 }
 
 .navbar-title {
     text-align: center;
+}
+
+a.navbar-brand {
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    padding: 0px;
+}
+
+.social-img-nav {
+    width: 35px;
+    height: 35px;
+    padding: 3px;
+}
+
+@media screen and (max-width: 568px) {
+    #follow {
+        display: none;
+    }
 }

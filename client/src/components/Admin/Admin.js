@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Admin.css";
 import MyInput from "../Input";
 import MyEditor from "../MyEditor";
 import Uploader from "../FileUploader";
 import Button from "../Button";
+import NavHeader from "../NavHeader";
 
 // // import 'draft-js/dist/Draft.css';
 // const styles = theme => ({
@@ -59,38 +59,34 @@ class Admin extends React.Component {
     render() {
         return (
             <div>
+                <NavHeader />
                 <h1>THIS IS THE ADMIN PAGE</h1>
-                <Link to="/">HOME</Link>
-                <Link to="/blog">BLOG</Link>
-                <Link to="/shop/:id">SHOP</Link>
-                <Link to="/cart/:id">CART</Link>
                 <div className="row">
-                <div className="col-12 col-md-8 col-lg-8">
-                <div className="editor-wrapper">
-                    <form>
-                        <MyInput
-                        name="blog_title"
-                        value={this.state.blog_title}
-                        onChange={this.onChange}
-                        placeholder="Blog Title"
-                        />
-                        <br />
-                    </form>
-                    <MyEditor />
-                    <Button
-                        type="success"
-                        value="Submit"
-                        onClick={this.submitBlog.bind(this)}
-                        label="SUBMIT"
-                    >
-                    </Button>
-                </div>
-                </div>
-                <div className="col-12 col-md-4 cold-lg-8">
-                <div className='uploader-wrapper'>
-                    <Uploader />
-                </div>
-                </div>
+                    <div className="col-12 col-md-2 col-lg-2"></div>
+                    <div className="col-12 col-md-6 col-lg-6">
+                        <div className="editor-wrapper">
+                            <form>
+                                <MyInput
+                                  name="blog_title"
+                                  value={this.state.blog_title}
+                                  onChange={this.onChange}
+                                  placeholder="Blog Title"
+                                />
+                            </form>
+                            <MyEditor />
+                            <Button
+                              type="success"
+                              value="Submit"
+                              onClick={this.submitBlog.bind(this)}
+                              label="SUBMIT"
+                            />
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-4 col-lg-4">
+                        <div className='uploader-wrapper'>
+                            <Uploader />
+                        </div>
+                    </div>
                 </div>
             </div>
         )

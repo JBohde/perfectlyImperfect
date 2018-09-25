@@ -1,39 +1,16 @@
 import React from 'react';
+import {Navbar} from 'react-bootstrap';
 import './NavBar.css';
 
 
 const NavBar = () => {
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
-    <a className="navbar-brand" href="">Navbar</a>
-    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul className="navbar-nav">
-        <li className="nav-item active">
-          <a className="nav-link" href="">Home <span className="sr-only">(current)</span></a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="">Features</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="">Pricing</a>
-        </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
-          </a>
-          <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a className="dropdown-item" href="">Action</a>
-            <a className="dropdown-item" href="">Another action</a>
-            <a className="dropdown-item" href="">Something else here</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        <Navbar className="justify-content-end"><h6 id="follow">FOLLOW</h6>
+          <a href="https://www.facebook.com/perfectlyimperfectblogpage/" target="_blank" rel="noopener noreferrer"><img src="./if_3_939757.png" className="social-img-nav" alt="fb-logo"/></a>
+          <a href="https://www.instagram.com/perf_imperf2017/" target="_blank" rel="noopener noreferrer"><img src="./if_5_939756.png" className="social-img-nav" alt="insta-logo"/></a>
+		      <a href="https://twitter.com/perf_imperf2017" target="_blank" rel="noopener noreferrer"><img src="./if_4_939755.png" className="social-img-nav" alt="twitter-logo"/></a>
+        </Navbar>
   );
 }
 

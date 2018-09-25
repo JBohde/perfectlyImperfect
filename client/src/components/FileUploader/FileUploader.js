@@ -5,25 +5,40 @@ class Uploader extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-          file: 'http://placehold.it/350x250'
+          image: 'http://placehold.it/350x250',
+          video: ''
         }
-        this.handleChange = this.handleChange.bind(this)
+        this.changeImage = this.changeImage.bind(this)
+        this.changeVideo = this.changeVideo.bind(this)
       }
-      handleChange(event) {
+
+      changeImage(event) {
         this.setState({
-          file: URL.createObjectURL(event.target.files[0])
+          image: URL.createObjectURL(event.target.files[0])
+        })
+      }
+
+      changeVideo(event) {
+        this.setState({
+          video: URL.createObjectURL(event.target.files[0])
         })
       }
       render() {
         return (
           <div>
-            <div className="placeholder">
-              <img className='responsive' src={this.state.file} alt='selected_file'/>
-              <input accept="image/*" onChange={this.handleChange} id="icon-button-file" type="file" />
-              <label htmlFor="icon-button-file">
-                <i class="fas fa-camera-retro"></i>
-              </label>
+            <div>
+              <img className='img-fluid' src={this.state.image} alt='selected_file'/>
             </div>
+              <span>
+                <input accept="image/*" onChange={this.changeImage} id="icon-button-file" type="file" />
+                <label htmlFor="icon-button-file">
+                  <i className="fas fa-camera-retro fa-2x"></i>
+                </label>
+                <input accept="video/*" onChange={this.changeVideo} id="icon-button-file" type="file" />
+                <label htmlFor="icon-button-file">
+                  <i class="fas fa-video fa-2x"></i>
+                </label>
+              </span>
           </div>
         );
       }
