@@ -11,9 +11,6 @@ class Blog extends React.Component {
         super(props)
         this.state = {
             user_id: this.props.match.params.id,
-            first_name: "",
-            last_name: "",
-            password: "",
         }
     }
 
@@ -21,7 +18,7 @@ class Blog extends React.Component {
         axios.get(`/api/perfectlyimperfect/admin/posts`)
         .then(res => {
             this.setState(res.data);
-            console.log(res.data);
+            console.log(this.state);
         })
     }
 

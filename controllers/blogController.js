@@ -44,7 +44,8 @@ module.exports = {
       author: req.body.author,
       title: req.body.title,
       body: req.body.body,
-      category: req.body.category
+      category: req.body.category,
+      img: req.body.img
     })
       .then(function(dbPost) {
         res.json(dbPost);

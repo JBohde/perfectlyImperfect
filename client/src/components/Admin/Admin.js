@@ -21,7 +21,7 @@ class Admin extends React.Component {
             blog_video: ''
         }
         this.handleBodyChange = this.handleBodyChange.bind(this)
-        this.changeImage = this.changeImage.bind(this)
+        this.handleImgChange = this.handleImgChange.bind(this)
         this.changeVideo = this.changeVideo.bind(this)
     }
     componentDidMount () {
@@ -48,11 +48,12 @@ class Admin extends React.Component {
         console.log(this.state.blog_body);
     }
 
-    changeImage = event => {
+    handleImgChange = event => {
         console.log(event);
+        const { name, value } = event.target;
         this.setState({
-          blog_img: URL.createObjectURL(event.target.files[0])
-        })
+            [name]: value
+        });
         console.log(this.state.blog_img);
       }
 
@@ -70,10 +71,10 @@ class Admin extends React.Component {
       }
 
     submitBlog = (e) => {
-        const blogObj = { title: this.state.blog_title, body: this.state.blog_body, img: this.state.blog_image };
+        const blogObj = { title: this.state.blog_title, body: this.state.blog_body, img: this.state.blog_img };
         console.log(blogObj);
         axios.post(`/api/perfectlyimperfect/admin/posts`, blogObj)
-            .then(res => { this.setState({ blog_title: "", blog_body: "", blog_img: "" }); })
+            .then(res => { this.setState({ blog_title: "", blog_body: "", blog_img: "http://placehold.it/350x250" }); })
             .then(() => {
                 axios.get(`/api/perfectlyimperfect/admin/posts`)
                   .then(res => { this.setState(res.data); })
@@ -102,6 +103,15 @@ class Admin extends React.Component {
                                   onChange={this.handleTitleChange} 
                                   placeholder="Enter title here" 
                                 />
+                                <Label for="blog_img"><h5>Image</h5></Label>
+                                <Input 
+                                  type="text" 
+                                  name="blog_img" 
+                                  value={this.state.blog_img} 
+                                  id="imgInput" 
+                                  onChange={this.handleImgChange} 
+                                  placeholder="Enter image link here" 
+                                />
 		                      </FormGroup>
 	                        </Form>
                             <ReactQuill
@@ -119,20 +129,19 @@ class Admin extends React.Component {
                     </Col>
                     <Col xs={12} md={4} lg={4}>
                         <div className='uploader-wrapper'>
-                            {/* <Uploader /> */}
                             <div>
                                 <img className='img-fluid' src={this.state.blog_img} alt='selected_file'/>
-                         </div>
-                        <span>
-                            <input accept="image/*" onChange={this.changeImage} id="icon-button-file" type="file" />
-                            <label htmlFor="icon-button-file">
-                            <i className="fas fa-camera-retro fa-2x"></i>
-                            </label>
-                            <input accept="video/*" onChange={this.changeVideo} id="icon-button-file" type="file" />
-                            <label htmlFor="icon-button-file">
-                            <i className="fas fa-video fa-2x"></i>
-                            </label>
-                        </span>
+                            </div>
+                            <span>
+                                <Input accept="image/*" onChange={this.handleImgChange} id="icon-button-file" type="file" />
+                                <Label htmlFor="icon-button-file">
+                                    <i className="fas fa-camera-retro fa-2x"></i>
+                                </Label>
+                                <Input accept="video/*" onChange={this.changeVideo} id="icon-button-file" type="file" />
+                                <Label htmlFor="icon-button-file">
+                                    <i className="fas fa-video fa-2x"></i>
+                                </Label>
+                            </span>
                         </div>
                     </Col>
                 </Row>

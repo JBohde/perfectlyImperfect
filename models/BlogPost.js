@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 // Save a reference to the Schema constructor
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const blogPost = new mongoose.Schema({
+const blogPost = new Schema({
       author: {
         type: String,
         require: true,
@@ -19,9 +19,6 @@ const blogPost = new mongoose.Schema({
       img: {
         type: String,
         require: true,
-      },
-      audio: {
-        type: String
       },
       published: {
         type: Date,

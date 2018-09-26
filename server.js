@@ -1,6 +1,8 @@
 const express = require("express");
+const fs = require('fs');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+// const multer = require('multer');
 const routes = require("./routes/imperfectAPI");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
@@ -24,6 +26,12 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add API Routes
 app.use("/api", routes);
+
+// app.use(multer({ dest: './uploads/',
+//   rename: function (fieldname, filename) {
+//     return filename;
+//   },
+//  }));
 
 // Send every request to the React app
 // Define any API routes before this runs
