@@ -1,5 +1,16 @@
+.ql-container.ql-snow {
+    height: 20vh;
+}
+
 .editor-wrapper,
 .uploader-wrapper {
     padding: 15px;
 }
 
+input {
+    display: none;
+}
+
+label {
+    margin: 2px;
+}

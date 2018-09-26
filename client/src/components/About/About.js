@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
 import "./About.css";
 
@@ -11,6 +12,7 @@ class About extends React.Component {
     render() {
         return ( 
         <div>
+            <NavBar />
             <NavHeader />
             <div className="container" >
             <h1 id="about" > THIS IS THE ABOUT PAGE</h1> 

@@ -16,6 +16,13 @@ const blogPost = new mongoose.Schema({
         type: String,
         require: true,
       },
+      img: {
+        type: String,
+        require: true,
+      },
+      audio: {
+        type: String
+      },
       published: {
         type: Date,
         default: Date.now

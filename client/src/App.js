@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Blog from "./components/Blog";
@@ -18,7 +17,6 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
-        <NavBar />
         <div className="App-content">
           <Route exact path="/" component={Home} />
           <Route path="/blog" component={Blog} />

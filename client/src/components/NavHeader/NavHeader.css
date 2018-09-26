@@ -1,13 +1,18 @@
 .link-container {
-    padding: 10px;
+    padding-bottom: 30px;
     margin: 0;
     list-style: none;
     display: flex;
     justify-content: space-around;
 }
 
+div#nav-header {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .row.navbar-header-content {
-    padding: 50px;
+    padding: 20px;
 }
 
 #title {
