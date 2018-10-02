@@ -6,9 +6,14 @@
     justify-content: space-around;
 }
 
+hr {
+    border-top: 1.5px solid rgba(216,216,216);
+    margin: 1px;
+}
+
 div#nav-header {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .row.navbar-header-content {
@@ -16,10 +21,12 @@ div#nav-header {
 }
 
 #title {
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
 
 .nav-link {
+    font-family: 'Montserrat', sans-serif;
     display: block;
     padding: .3rem 1rem;
 }
@@ -32,6 +39,7 @@ a#collasible-nav-dropdown {
 }
 
 #seek {
+    font-family: 'Cardo', sans-serif;
     font-size: 1.25em;
     display: inline;
 }
@@ -59,4 +67,10 @@ a#collasible-nav-dropdown {
     align-items: center;
     justify-content: center;
     padding: 10px;
+}
+
+@media screen and (max-width:568px) {
+    .row.navbar-header-content {
+        padding: 5px;
+    }
 }

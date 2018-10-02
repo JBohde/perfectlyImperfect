@@ -1,6 +1,11 @@
+.container {
+    margin-bottom: 100px;
+}
+
 .video-display {
     height: 100%;
     display: flex;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;

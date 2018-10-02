@@ -1,4 +1,4 @@
-nav.footer.navbar.sticky-bottom {
+nav.footer.navbar.fixed-bottom{
     background-color: #eee;
     display: flex;
     justify-content: space-around;

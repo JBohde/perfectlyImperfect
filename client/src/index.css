@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Cardo', serif;
+  font-family: 'Montserrat', serif;
+  background-color: #F2F8FC;
 }
 
 h1,
@@ -12,5 +13,5 @@ h5,
 h6,
 button,
 a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Cardo', sans-serif;
 }

@@ -16,13 +16,14 @@ class Admin extends React.Component {
             data: '',
             blog_title: '',
             blog_body: '',
-            blog_img: 'http://placehold.it/350x250',
+            blog_image: 'http://placehold.it/350x250',
+            image_name: '',
             blog_audio: '',
             blog_video: ''
         }
         this.handleBodyChange = this.handleBodyChange.bind(this)
         this.handleImgChange = this.handleImgChange.bind(this)
-        this.changeVideo = this.changeVideo.bind(this)
+        this.handleVideoChange = this.handleVideoChange.bind(this)
     }
     componentDidMount () {
         axios.get(`/api/perfectlyimperfect/admin/posts`)
@@ -48,33 +49,53 @@ class Admin extends React.Component {
         console.log(this.state.blog_body);
     }
 
+    // handleImgChange = event => {
+    //     console.log(event);
+    //     const { name, value } = event.target;
+    //     this.setState({
+    //         [name]: value
+    //     });
+    //     console.log(this.state.blog_image);
+    //   }
+
     handleImgChange = event => {
-        console.log(event);
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-        console.log(this.state.blog_img);
+        console.log(event.target.files);
+        let files = event.target.files;
+        let reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        this.setState({ image_name: files[0].name })
+        reader.onload = event => {
+            this.setState({ 
+                blog_image: event.target.result
+            })
+            console.log('img data ', event.target.result);
+        }
       }
 
-    handleAudioChange = audio => {
-        this.setState({ 
-            blog_audio: audio 
-        })
-        console.log(this.state.blog_audio);
+    handleAudioChange = event => {
+        console.log(event.target.files);
+        let files = event.target.files;
+        let reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        reader.onload = event => {
+            this.setState({ 
+                blog_audio: event.target.result
+            })
+            console.log('audio data ', event.target.result);
+        }
     }
 
-    changeVideo = event => {
+    handleVideoChange = event => {
         this.setState({
           video: URL.createObjectURL(event.target.files[0])
         })
       }
 
     submitBlog = (e) => {
-        const blogObj = { title: this.state.blog_title, body: this.state.blog_body, img: this.state.blog_img };
+        const blogObj = { title: this.state.blog_title, body: this.state.blog_body, img: this.state.blog_image };
         console.log(blogObj);
         axios.post(`/api/perfectlyimperfect/admin/posts`, blogObj)
-            .then(res => { this.setState({ blog_title: "", blog_body: "", blog_img: "http://placehold.it/350x250" }); })
+            .then(res => { this.setState({ blog_title: "", blog_body: "", blog_image: "http://placehold.it/350x250", image_name: "" }); })
             .then(() => {
                 axios.get(`/api/perfectlyimperfect/admin/posts`)
                   .then(res => { this.setState(res.data); })
@@ -87,7 +108,7 @@ class Admin extends React.Component {
         return (
             <div>
                 <NavBar />
-                <h1>THIS IS THE ADMIN PAGE</h1>
+                {/* <h1>THIS IS THE ADMIN PAGE</h1> */}
                 <Row>
                     <Col xs={12} md={2} lg={2}></Col>
                     <Col xs={12} md={6} lg={6}>
@@ -103,11 +124,11 @@ class Admin extends React.Component {
                                   onChange={this.handleTitleChange} 
                                   placeholder="Enter title here" 
                                 />
-                                <Label for="blog_img"><h5>Image</h5></Label>
+                                <Label for="blog_image"><h5>Image</h5></Label>
                                 <Input 
                                   type="text" 
-                                  name="blog_img" 
-                                  value={this.state.blog_img} 
+                                  name="blog_image" 
+                                  value={this.state.image_name} 
                                   id="imgInput" 
                                   onChange={this.handleImgChange} 
                                   placeholder="Enter image link here" 
@@ -130,14 +151,14 @@ class Admin extends React.Component {
                     <Col xs={12} md={4} lg={4}>
                         <div className='uploader-wrapper'>
                             <div>
-                                <img className='img-fluid' src={this.state.blog_img} alt='selected_file'/>
+                                <img className='img-fluid' src={this.state.blog_image} alt='selected_file'/>
                             </div>
                             <span>
-                                <Input accept="image/*" onChange={this.handleImgChange} id="icon-button-file" type="file" />
+                                <Input type="file" name='file' accept="image/*" onChange={this.handleImgChange} id="icon-button-file" />
                                 <Label htmlFor="icon-button-file">
                                     <i className="fas fa-camera-retro fa-2x"></i>
                                 </Label>
-                                <Input accept="video/*" onChange={this.changeVideo} id="icon-button-file" type="file" />
+                                <Input type="file" name='file' accept="video/*" onChange={this.handleVideoChange} id="icon-button-file" />
                                 <Label htmlFor="icon-button-file">
                                     <i className="fas fa-video fa-2x"></i>
                                 </Label>

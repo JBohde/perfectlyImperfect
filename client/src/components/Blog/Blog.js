@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
@@ -11,67 +12,70 @@ class Blog extends React.Component {
         super(props)
         this.state = {
             user_id: this.props.match.params.id,
+            data: []
         }
     }
 
     componentDidMount () {
         axios.get(`/api/perfectlyimperfect/admin/posts`)
         .then(res => {
-            this.setState(res.data);
-            console.log(this.state);
+            this.setState({data: res.data});
+            console.log(this.state.data);
         })
     }
 
     render() {
+        let newString;
+        console.log(this.state.data)
+        const allBlogs = this.state.data.map(blog => (
+            newString = blog.body.replace(/<p.*?>(.*?)<\/p>|<em.*?>(.*?)<\/em>|<strong.*?>(.*?)<\/strong>|<a.*?>(.*?)<\/a>/g, '$1'),
+            <Row key={blog._id}>
+            <Col sm={12} md={8} lg={8} id="main-wrapper">
+                <div><img className="img-fluid" id="main-blog" src={blog.img} alt="blog-pic"/></div>
+            </Col>
+            <Col sm={12} md={4} lg={4} id="summary-wrapper"  >
+                <div id="summary">
+                  <h3>{blog.title}</h3>
+                  <p className="card-text">{`${newString.substring(0, 300)}....`} </p> 
+                </div>
+              <ButtonToolbar>
+              <Link to={{ pathname: `/blog/${blog._id}` }}>
+                  <Button outline color="primary" id="main-blog-read" size="lg" href={`/blog/${blog._id}`}>
+                      READ MORE
+                  </Button>
+              </Link>
+              </ButtonToolbar>
+            </Col>
+            </Row>
+        ))
+
+        const blogCard = this.state.data.map(blog => (
+            
+              <BlogCard
+                key={blog._id}
+                src={blog.img}
+                blog_title={blog.title}
+                blog_text={newString.substring(0, 100)}
+                href={`/blog/${blog._id}`}
+              />
+            
+        ))
         return (
             <div>
-                <NavBar />
+              <NavBar />
               <NavHeader />
-              <Row>
-                <Col sm={12} md={8} lg={8} id="main-wrapper">
-                  <div ><img className="img-fluid" id="main-blog" src='https://images.pexels.com/photos/789382/pexels-photo-789382.jpeg?cs=srgb&dl=blur-close-up-daylight-789382.jpg&fm=jpg' alt="blog-pic"></img></div>
-                </Col>
-                <Col sm={12} md={4} lg={4} id="summary-wrapper">
-                <h3>MAIN ARTICLE</h3>
-                <p>Lorem ipsum dolor amet actually fanny pack sustainable listicle freegan.Asymmetrical pork belly selvage, twee freegan sriracha pour - over.Squid pitchfork mustache vegan kombucha.
-                </p> 
-                    <ButtonToolbar>
-                        <Button outline color="primary" id="main-blog-read" size="lg">
-                            READ MORE
-                        </Button>
-                    </ButtonToolbar>
-                </Col>
-                </Row>
+                    {allBlogs.slice(allBlogs.length - 1)}
                 <Row>
                 <Container>
                 <div className="blog-container">
-                <Col xs={12} sm={12} md={3} lg={3}>
-                <BlogCard
-                  src="https://images.pexels.com/photos/1440650/pexels-photo-1440650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  blog_title="BLOG ONE TITLE"
-                  blog_text="Lorem ipsum dolor amet actually fanny pack sustainable listicle freegan....."
-                />
+                <Col xs={12} sm={12} md={6} lg={4} >
+                    {blogCard.reverse().slice(1,2)}
                 </Col>
-                <Col xs={12} sm={12} md={3} lg={3}>
-                <BlogCard
-                  src="https://images.pexels.com/photos/1441508/pexels-photo-1441508.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  blog_title="BLOG TWO TITLE"
-                  blog_text="Lorem ipsum dolor amet actually fanny pack sustainable listicle freegan....."
-                />
+                <Col xs={12} sm={12} md={6} lg={4} >
+
                 </Col>
-                <Col xs={12} sm={12} md={3} lg={3}>
-                <BlogCard
-                  src="https://images.pexels.com/photos/1078565/pexels-photo-1078565.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  blog_title="BLOG THREE TITLE"
-                  blog_text="Lorem ipsum dolor amet actually fanny pack sustainable listicle freegan....."
-                />
-                </Col>
-                <Col xs={12} sm={12} md={3} lg={3}>
-                <BlogCard
-                  src="https://images.pexels.com/photos/808910/pexels-photo-808910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  blog_title="BLOG FOUR TITLE"
-                  blog_text="Lorem ipsum dolor amet actually fanny pack sustainable listicle freegan....."
-                />
+                <Col xs={12} sm={12} md={6} lg={4} >
+                    {blogCard.reverse().slice(2,3)}
                 </Col>
                 </div>
                 </Container>

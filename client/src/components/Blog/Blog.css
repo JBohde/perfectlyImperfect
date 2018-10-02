@@ -4,7 +4,7 @@
 
 #main-blog {
     width: 100%;
-    height: 50vh;
+    height: 55vh;
 }
 
 .blog-container {
@@ -21,23 +21,36 @@
     text-align: left;
     background-color:#4B9CD3;
     color: #fff;
-    padding: 60px;
-    height: 50vh;
+    padding: 45px;
+    height: 55vh;
 }
 
-#main-blog-read {
-    /* background-color: #2E5077; */
+#summary {
+    width: 85%;
+}
+
+#main-blog-read,
+.card-button {
     background-color:#4B9CD3;
     border: 1px solid #fff;
     color: white;
     font-size: 12px;
-    float:left;
+}
+
+.card,
+.card-text {
+    font-size: .85em;
+}
+
+.card-body {
+    background-color:#4B9CD3;
+    color: #fff;
 }
 
 @media screen and (max-width:568px) {
     #main-blog,
     #summary {
         width: 100%;
-        height: 40vh;
+        height: 35vh;
     }
 }

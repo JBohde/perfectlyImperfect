@@ -1,7 +1,6 @@
 import React from "react";
 import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
-import MyModal from '../Modal';
 import "./Home.css";
 
 class Home extends React.Component {
@@ -18,11 +17,7 @@ class Home extends React.Component {
             <div className="video-display">
                 <h1 id="home">THIS IS THE HOME PAGE</h1>
             </div>
-            <MyModal 
-            openLabel="OPEN"
-            modalHeader="MODAL HEADER"
-            modalBody={this.state.body}
-            />
+
         </div>
         )
     }

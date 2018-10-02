@@ -1,13 +1,10 @@
 const express = require("express");
-const fs = require('fs');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-// const multer = require('multer');
 const routes = require("./routes/imperfectAPI");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-// const Sequelize = require('sequelize');
 // const session = require("express-session");
 
 // var sess = {
@@ -17,8 +14,9 @@ const app = express();
 // app.use(session(sess));
 
 // Configure to use body parser for AJAX requests
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -26,12 +24,6 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add API Routes
 app.use("/api", routes);
-
-// app.use(multer({ dest: './uploads/',
-//   rename: function (fieldname, filename) {
-//     return filename;
-//   },
-//  }));
 
 // Send every request to the React app
 // Define any API routes before this runs
