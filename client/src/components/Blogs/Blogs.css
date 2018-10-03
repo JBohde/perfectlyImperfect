@@ -3,7 +3,7 @@
 }
 
 #main-blog {
-    width: 100%;
+    width: 70%;
     height: 55vh;
 }
 
@@ -17,7 +17,9 @@
     align-content: center;
 }
 
-#summary-wrapper {
+#summary {
+    width: 30%;
+    float:right;
     text-align: left;
     background-color:#4B9CD3;
     color: #fff;
@@ -25,9 +27,9 @@
     height: 55vh;
 }
 
-#summary {
+/* #summary {
     width: 85%;
-}
+} */
 
 #main-blog-read,
 .card-button {

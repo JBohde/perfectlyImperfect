@@ -1,12 +1,13 @@
 import React from "react";
 import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
+import { Row, Col, Container } from 'reactstrap';
 import "./Home.css";
 
 class Home extends React.Component {
 
     state = {
-        body: 'Lorem ipsum dolor amet actually fanny pack sustainable listicle freegan.Asymmetrical pork belly selvage, twee freegan sriracha pour - over.Squid pitchfork mustache vegan'
+      
     }
 
     render() {
@@ -14,10 +15,15 @@ class Home extends React.Component {
         <div>
             <NavBar />
             <NavHeader />
-            <div className="video-display">
-                <h1 id="home">THIS IS THE HOME PAGE</h1>
-            </div>
-
+            <Container>
+                <h1>THIS IS THE HOME PAGE</h1>
+            <Row>
+              <Col xs={12} sm={12} md={2} lg={2} xl={2}></Col>
+              <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+              </Col>
+          <Col xs={12} sm={12} md={2} lg={2} xl={2}></Col>
+          </Row>
+          </Container>
         </div>
         )
     }

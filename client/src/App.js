@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
-import Blog from "./components/Blog";
+import Blogs from "./components/Blogs";
 import BlogRead from "./components/BlogRead";
 import Shop from "./components/Shop";
 import Cart from "./components/Cart";
@@ -20,9 +20,9 @@ class App extends Component {
       <div className="App">
         <div className="App-content">
           <Route exact path="/" component={Home} />
-          <Route path="/blogs" component={Blog} />
+          <Route path="/blogs" component={Blogs} />
           {/* <Route path='/blog/:id' component={BlogRead} /> */}
-          <Route path='/blog/:id' component={BlogRead} />
+          <Route path='/blog' component={BlogRead} />
           <Route path="/inspiration" component={Inspiration} />
           <Route path="/about" component={About} />
           <Route path="/shop/:id" component={Shop} />

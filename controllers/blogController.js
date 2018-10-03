@@ -28,13 +28,9 @@ module.exports = {
 
   // GET route for retrieving a single post
   findOne: function(req, res) {
-    db.BlogPost.findOne({
-      where: { id: req.params.id }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      })
-      .catch(err => res.status(422).json(err));
+    db.BlogPost.findById(req.params.id)
+    .then(dbPost=> res.json(dbPost))
+    .catch(err => res.status(422).json(err));
   },
 
   // POST route for saving a new post

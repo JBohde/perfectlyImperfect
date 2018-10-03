@@ -8,10 +8,10 @@ const blogController = require("../controllers/blogController");
     .post(blogController.addPost) //add a new post
     .put(blogController.update) // update with new post
 
-  router.route("perfectlyimperfect/posts/category/:category")
+  router.route("/perfectlyimperfect/posts/category/:category")
     .get(blogController.findAll) // Get route for returning posts of a specific category
 
-  router.route("perfectlyimperfect/posts/:id")
+  router.route("/perfectlyimperfect/blog/:id")
     .get(blogController.findOne) //find a specific post
     .delete(blogController.deletePost) //delete a specific post
 
