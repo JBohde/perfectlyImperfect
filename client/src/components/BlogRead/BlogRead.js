@@ -3,7 +3,7 @@ import axios from "axios";
 import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
 import { Container } from 'reactstrap';
-
+import './BlogRead.css';
 
 import "./BlogRead.css";
 
@@ -18,8 +18,7 @@ class BlogRead extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
-    console.log(this.state.blog_id)
+    // console.log(this.props)
     axios.get(`/api/perfectlyimperfect/${this.state.blog_id}`)
       .then(res => {
         this.setState({data: res.data})
@@ -28,12 +27,17 @@ class BlogRead extends React.Component {
       .catch(err => console.log(err));
   }
 
+
+
   formatBlog = () => {
     const format = Object.keys(this.state.data).map(key => this.state.data[key])
     this.setState({data: format});
     this.setState({ blog: this.state.data[6]});
-    let blog = document.querySelector('#blog')
-    blog.innerHTML = this.state.blog
+    const text = this.state.blog;
+    const textID = ' id="first_para"';
+    var addedID = [text.slice(0, 2), textID, text.slice(2)].join('');
+    let blog = document.querySelector('#blog');
+    blog.innerHTML = addedID;
   }
 
   render() {
@@ -42,7 +46,9 @@ class BlogRead extends React.Component {
           <NavBar />
           <NavHeader />
           <Container>
-            <h1>{this.state.data[5]}</h1>
+            <img id ="blog-image" src={this.state.data[7]} alt="blog-pic"/>
+            <br />
+            <h1 id="blog_title">{this.state.data[5]}</h1>
             <div id="blog"></div>
           </Container>
       </div>

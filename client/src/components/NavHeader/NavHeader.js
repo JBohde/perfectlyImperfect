@@ -31,7 +31,7 @@ class NavHeader extends React.Component {
           <div className="col-12 col-sm-12 col-md-6 col-lg-6 navbar-title">
             <h2 id="title">PERFECTLY IMPERFECT</h2>
             {/* <div className='header-logo'><Image src="./pi-logo.jpg" fluid roundedCircle/></div> */}
-            <p id="seek">Happy Seeking...</p>
+            <p id="seek">Happy Seeking!</p>
           </div>
           <div className=" col-12 col-sm-12 col-md-3 col-lg-3 navbar-subscribe">
             <MyModal 

@@ -7,6 +7,10 @@
     height: 55vh;
 }
 
+#main-title {
+    text-align: left;
+}
+
 .blog-container {
     width: 100%;
     margin-top: 25px;
@@ -27,16 +31,15 @@
     height: 55vh;
 }
 
-/* #summary {
-    width: 85%;
-} */
-
-#main-blog-read,
-.card-button {
+#main-blog-read {
     background-color:#4B9CD3;
     border: 1px solid #fff;
     color: white;
     font-size: 12px;
+}
+
+#main-blog-read:hover {
+    background-color:  #2E5077;
 }
 
 .card,
