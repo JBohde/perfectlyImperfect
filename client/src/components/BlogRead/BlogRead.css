@@ -1,0 +1,46 @@
+
+#blog-image {
+    width: 75%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1#blog_title {
+    margin: 15px;
+    font-family: 'Montserrat', serif;
+}
+
+div#blog p {
+    width: 75%;
+    margin: 0 auto;
+    font-family: 'Cardo', sans-serif;
+}
+
+p#first_para::first-letter {
+    color: #903;
+    color: #E63946;
+    float: left;
+    font-family: 'Cardo', sans-serif;
+    font-size: 75px;
+    line-height: 60px;
+    padding-top: 10px;
+    padding-right: 8px;
+    padding-left: 3px;
+}
+
+@media screen and (max-width:568px) {
+    #blog-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div#blog p {
+        width: 100%;
+        margin: 0 auto;
+        font-family: 'Cardo', sans-serif;
+    }
+}
