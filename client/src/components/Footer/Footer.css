@@ -1,14 +1,16 @@
 /* nav.footer.navbar.fixed-bottom */
 nav.footer.navbar{
-    background-color: #8CC0E3;
+    background-color: #4B9CD3;
     color: #fff;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.footer-link {
-    margin: auto;
+.footer-social {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .footer-img {
