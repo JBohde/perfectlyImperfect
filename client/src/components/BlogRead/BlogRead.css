@@ -12,7 +12,25 @@ h1#blog_title {
     font-family: 'Montserrat', serif;
 }
 
-div#blog p {
+.social-share {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.SocialMediaShareButton {
+    margin: 3px;
+}
+
+audio.react-audio-player {
+    margin: 50px auto 25px;
+    height: auto;
+    display: block;
+}
+
+div#blog p,
+div#blog li,
+div#blog ul {
     width: 75%;
     margin: 0 auto;
     font-family: 'Cardo', sans-serif;

@@ -3,9 +3,17 @@ import axios from "axios";
 import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
 import { Container } from 'reactstrap';
-import './BlogRead.css';
+import ReactAudioPlayer from 'react-audio-player';
+import {
+  FacebookShareButton,
+  GooglePlusShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  GooglePlusIcon,
 
-import "./BlogRead.css";
+} from 'react-share';
+import './BlogRead.css';
 
 class BlogRead extends React.Component {
   constructor(props) {
@@ -49,6 +57,16 @@ class BlogRead extends React.Component {
             <img id ="blog-image" src={this.state.data[7]} alt="blog-pic"/>
             <br />
             <h1 id="blog_title">{this.state.data[5]}</h1>
+            <div className='social-share'>
+            <FacebookShareButton children='' url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
+            <GooglePlusShareButton url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
+            <TwitterShareButton url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
+            </div>
+            <ReactAudioPlayer
+              src="my_audio_file.ogg"
+              autoPlay
+              controls
+            />
             <div id="blog"></div>
           </Container>
       </div>

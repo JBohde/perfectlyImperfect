@@ -1,5 +1,7 @@
-nav.footer.navbar.fixed-bottom{
-    background-color: #eee;
+/* nav.footer.navbar.fixed-bottom */
+nav.footer.navbar{
+    background-color: #8CC0E3;
+    color: #fff;
     display: flex;
     justify-content: space-around;
     align-items: center;
