@@ -15,7 +15,7 @@ const app = express();
 
 // Configure to use body parser for AJAX requests
 app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Serve up static assets (usually on heroku)
