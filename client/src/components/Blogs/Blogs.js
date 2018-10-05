@@ -6,6 +6,7 @@ import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
 import { Row, Col, Container } from 'reactstrap';
 import BlogCard from "../BlogCard";
+import Moment from "moment";
 import "./Blogs.css";
 
 class Blogs extends React.Component {
@@ -35,7 +36,8 @@ class Blogs extends React.Component {
                     <img className="img-fluid" id="main-blog" src={blog.img} alt="blog-pic"/>
                     <div id="summary">
                         <h3 id="main-title">{blog.title}</h3>
-                        {Parser(blog.body.substring(0, 350))}
+                        <h6 id="main-date">{Moment(blog.date).format('MMMM Do, YYYY')}</h6>
+                        {Parser([blog.body.slice(0, 250), "...", blog.body.slice(250, 250)].join(''))}
                         <Link to={{ pathname: `/blog/${blog._id}`, params: { data: this.state } }} className="btn btn-primary" id="main-blog-read">READ MORE</Link>
                     </div>
                 </div>
@@ -47,7 +49,8 @@ class Blogs extends React.Component {
                 key={blog._id}
                 src={blog.img}
                 blog_title={blog.title}
-                blog_text={Parser(blog.body.substring(0, 200))}
+                blog_date={Moment(blog.date).format('MMMM Do, YYYY')}
+                blog_text={Parser([blog.body.slice(0, 150), "...", blog.body.slice(150, 150)].join(''))}
                 link={blog._id}
               />
         ))
