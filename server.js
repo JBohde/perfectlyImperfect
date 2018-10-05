@@ -35,7 +35,8 @@ app.get("*", function (req, res) {
 mongoose.Promise = Promise;
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/perfectlyImperfect");
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/perfectlyImperfect");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_g9n5wm06:a0u06gijgqu5tdeirjsgibamcb@ds223763.mlab.com:23763/heroku_g9n5wm06");
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
