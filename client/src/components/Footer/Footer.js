@@ -11,7 +11,7 @@ const Footer = () => (
         <a href="https://www.instagram.com/perf_imperf2017/" target="_blank" rel="noopener noreferrer" className="footer-link"><img src="../assets/images/instagram.png" className="footer-img" alt="insta-logo"/></a>
 		    <a href="https://twitter.com/perf_imperf2017" target="_blank" rel="noopener noreferrer" className="footer-link"><img src="../assets/images/twitter.png" className="footer-img" alt="twitter-logo"/></a>
         </div>
-        <h6>&#169; 2018 perfectly imperfect</h6>
+        <h6 id="copyright">&#169; 2018 perfectly imperfect</h6>
       </div>
     </Navbar>
 )

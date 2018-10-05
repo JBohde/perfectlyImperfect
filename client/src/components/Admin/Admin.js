@@ -110,8 +110,8 @@ class Admin extends React.Component {
                 <NavBar />
                 {/* <h1>THIS IS THE ADMIN PAGE</h1> */}
                 <Row>
-                    <Col xs={12} md={2} lg={2}></Col>
-                    <Col xs={12} md={6} lg={6}>
+                    <Col xs={12} md={1} lg={1}></Col>
+                    <Col xs={12} md={7} lg={7}>
                         <div className="editor-wrapper">
                             <Form>
 		                      <FormGroup>
@@ -140,17 +140,12 @@ class Admin extends React.Component {
                               value={this.state.blog_body}
                               onChange={this.handleBodyChange}  
                             />
-                            <Button
-                              color="success"
-                              value="Submit"
-                              onClick={this.submitBlog.bind(this)}
-                            >SUBMIT
-                            </Button>
+
                         </div>
                     </Col>
                     <Col xs={12} md={4} lg={4}>
                         <div className='uploader-wrapper'>
-                            <div>
+                            <div id='placeholder'>
                                 <img className='img-fluid' src={this.state.blog_image} alt='selected_file'/>
                             </div>
                             <span>
@@ -162,8 +157,19 @@ class Admin extends React.Component {
                                 <Label htmlFor="icon-button-file">
                                     <i className="fas fa-video fa-2x"></i>
                                 </Label>
+                                <Input type="file" name='file' accept="audio/*" onChange={this.handleVideoChange} id="icon-button-file" />
+                                <Label htmlFor="icon-button-file">
+                                <i className="fas fa-microphone-alt fa-2x"></i>
+                                </Label>
                             </span>
                         </div>
+                        <Button
+                          id='submit-blog'
+                          color="success"
+                          value="Submit"
+                          onClick={this.submitBlog.bind(this)}
+                        >SUBMIT BLOG
+                        </Button>
                     </Col>
                 </Row>
             </div>

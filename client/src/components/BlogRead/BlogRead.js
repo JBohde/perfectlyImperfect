@@ -13,6 +13,7 @@ import {
   GooglePlusIcon,
 
 } from 'react-share';
+import Moment from "moment";
 import './BlogRead.css';
 
 class BlogRead extends React.Component {
@@ -57,6 +58,7 @@ class BlogRead extends React.Component {
             <img id ="blog-image" src={this.state.data[7]} alt="blog-pic"/>
             <br />
             <h1 id="blog_title">{this.state.data[5]}</h1>
+            <h6 id="blog-date">{Moment(this.state.data[9]).format('MMMM Do, YYYY')}</h6>
             <div className='social-share'>
             <FacebookShareButton children='' url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
             <GooglePlusShareButton url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>

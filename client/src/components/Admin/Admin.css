@@ -1,10 +1,24 @@
 .ql-container.ql-snow {
-    height: 20vh;
+    height: 50vh;
+    margin-bottom: 20px;
+}
+
+.ql-editor {
+    background-color: #ffffff;
 }
 
 .editor-wrapper,
 .uploader-wrapper {
-    padding: 15px;
+    padding-top: 15px;
+}
+
+#placeholder {
+    width: 350px;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
 }
 
 input#icon-button-file {
@@ -12,5 +26,5 @@ input#icon-button-file {
 }
 
 label {
-    margin: 2px;
+    margin: 5px;
 }
