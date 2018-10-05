@@ -4,7 +4,7 @@ import axios from "axios";
 import Parser from 'html-react-parser';
 import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
-import { Row, Col, Container, Media } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 import BlogCard from "../BlogCard";
 import Moment from "moment";
 import "./Blogs.css";
