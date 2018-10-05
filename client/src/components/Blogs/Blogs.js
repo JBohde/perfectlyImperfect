@@ -4,7 +4,7 @@ import axios from "axios";
 import Parser from 'html-react-parser';
 import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
-import { Row, Col, Container } from 'reactstrap';
+import { Row, Col, Container, Media } from 'reactstrap';
 import BlogCard from "../BlogCard";
 import Moment from "moment";
 import "./Blogs.css";
@@ -50,7 +50,7 @@ class Blogs extends React.Component {
                 src={blog.img}
                 blog_title={blog.title}
                 blog_date={Moment(blog.date).format('MMMM Do, YYYY')}
-                blog_text={Parser([blog.body.slice(0, 150), "...", blog.body.slice(150, 150)].join(''))}
+                blog_text={Parser([blog.body.slice(0, 40), "...", blog.body.slice(40, 40)].join(''))}
                 link={blog._id}
               />
         ))
@@ -66,7 +66,17 @@ class Blogs extends React.Component {
                     {blogCard.reverse().slice(1,2)}
                 </Col>
                 <Col xs={12} sm={12} md={4} lg={4} xl={4} >
-
+                {/* <Media>
+                    <Media left bottom href="#">
+                    <Media object src="http://placehold.it/64x64" alt="Generic placeholder image" />
+                    </Media>
+                    <Media body>
+                    <Media heading>
+                        About Me
+                    </Media>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                    </Media>
+                </Media> */}
                 </Col>
                 <Col xs={12} sm={12} md={4} lg={4} xl={4} >
                     {blogCard.slice(2,3)}

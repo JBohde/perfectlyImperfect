@@ -12,6 +12,11 @@
     padding: 10px;
 }
 
+#react-player {
+    width: 100%;
+    height: 78.5%;
+}
+
 #home {
     background-image: url("https://images.pexels.com/photos/633488/pexels-photo-633488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1000");
     min-height: 400px;
@@ -29,4 +34,11 @@
     width: 85%;
     text-align: center;
     color: #fff;
+}
+
+@media screen and (max-width: 568px) {
+    #react-player {
+        width: 100%;
+        height: 23.5%;
+    }
 }

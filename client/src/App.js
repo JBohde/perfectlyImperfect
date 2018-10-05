@@ -21,8 +21,7 @@ class App extends Component {
         <div className="App-content">
           <Route exact path="/" component={Home} />
           <Route path="/blogs" component={Blogs} />
-          {/* <Route path='/blog/:id' component={BlogRead} /> */}
-          <Route path='/blog' component={BlogRead} />
+          <Route path='/blog/:id' component={BlogRead} />
           <Route path="/inspiration" component={Inspiration} />
           <Route path="/about" component={About} />
           <Route path="/shop/:id" component={Shop} />

@@ -34,17 +34,18 @@ div#blog ul {
     width: 75%;
     margin: 0 auto;
     font-family: 'Cardo', sans-serif;
+    text-align:left;
 }
 
+
 p#first_para::first-letter {
-    color: #903;
     color: #E63946;
     float: left;
     font-family: 'Cardo', sans-serif;
     font-size: 75px;
     line-height: 60px;
     padding-top: 10px;
-    padding-right: 8px;
+    padding-right: 2%;
     padding-left: 3px;
 }
 
