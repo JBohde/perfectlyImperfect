@@ -1,7 +1,6 @@
 {
   "name": "perf-imperf",
   "version": "0.1.0",
-  "private": true,
   "description": "for use with Perfectly Imperfect",
   "main": "server.js",
   "author": "Joshua Bohde",
