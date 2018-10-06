@@ -31,6 +31,7 @@ class BlogRead extends React.Component {
     axios.get(`/api/perfectlyimperfect/${this.state.blog_id}`)
       .then(res => {
         this.setState({data: res.data})
+        console.log(this.state.data);
         this.formatBlog();
       })
       .catch(err => console.log(err));
