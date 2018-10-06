@@ -43,7 +43,7 @@ class NavHeader extends React.Component {
           </div>
         </div>
         < hr/>
-          {/* <div className="link-container"> */}
+          <div className="link-container">
           <Navbar color="light" light expand="md">
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -76,7 +76,7 @@ class NavHeader extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-          {/* </div> */}
+          </div>
           
       </div>
     )

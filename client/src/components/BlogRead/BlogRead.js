@@ -67,6 +67,7 @@ class BlogRead extends React.Component {
             <GooglePlusShareButton url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
             <TwitterShareButton url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
             </div>
+            <br/>
             <ReactAudioPlayer
               src="my_audio_file.ogg"
               autoPlay

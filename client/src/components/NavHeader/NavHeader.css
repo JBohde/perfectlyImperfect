@@ -109,4 +109,7 @@ a#collasible-nav-dropdown {
     .nav-link {
         margin: 5px;
     }
+    .link-container {
+        margin: 10px;
+    }
 }
