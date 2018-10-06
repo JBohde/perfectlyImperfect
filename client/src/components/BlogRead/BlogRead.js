@@ -20,14 +20,15 @@ class BlogRead extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-        blog_id: this.props.location.params.id,
+        blog_id: this.props.match.url,
         data: [],
         blog: ''
     }
   }
 
   componentDidMount() {
-    console.log(this.props)
+    console.log(this.props);
+    console.log(this.state.blog_id);
     axios.get(`/api/perfectlyimperfect/${this.state.blog_id}`)
       .then(res => {
         console.log(res);
