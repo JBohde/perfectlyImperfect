@@ -2,6 +2,9 @@
   "name": "perf-imperf",
   "version": "0.1.0",
   "description": "for use with Perfectly Imperfect",
+  "engines": {
+    "node": "8.12.0"
+  },
   "main": "server.js",
   "author": "Joshua Bohde",
   "dependencies": {
