@@ -66,7 +66,7 @@ class Blogs extends React.Component {
                     {blogCard.reverse().slice(1,2)}
                 </Col>
                 <Col xs={12} sm={12} md={4} lg={4} xl={4} >
-                {blogCard.reverse.slice(2,3)}
+                {blogCard.slice(2,3)}
                 {/* <Media>
                     <Media left bottom href="#">
                     <Media object src="http://placehold.it/64x64" alt="Generic placeholder image" />
@@ -80,7 +80,7 @@ class Blogs extends React.Component {
                 </Media> */}
                 </Col>
                 <Col xs={12} sm={12} md={4} lg={4} xl={4} >
-                    {blogCard.reverse.slice(3,4)}
+                    {blogCard.slice(3,4)}
                 </Col>
                 </div>
                 </Container>
