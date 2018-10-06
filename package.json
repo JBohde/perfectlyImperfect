@@ -20,7 +20,7 @@
     "sequelize": "^4.38.0"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0",
+    "concurrently": "^3.6.1",
     "css-loader": "^1.0.0",
     "nodemon": "^1.11.0",
     "style-loader": "^0.23.0"
