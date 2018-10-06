@@ -52,6 +52,11 @@ import {
       });
       
   }
+
+    handleSubcribe = event => {
+      console.log(this.state.name);
+      console.log(this.state.email);
+    }
     
     render() {
       return (      
@@ -70,7 +75,7 @@ import {
                <Button id="close-btn" onClick={this.closeModal.bind(this, 'modal1')}>
                Close
                </Button>
-               <Button id="subscribe-btn" onClick={this.handleSubcribe.bind(this)}>
+               <Button id="subscribe-btn" onClick={this.handleSubcribe}>
                Subscribe
                </Button>
                </div>
