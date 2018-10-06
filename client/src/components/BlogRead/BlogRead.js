@@ -29,7 +29,7 @@ class BlogRead extends React.Component {
   componentDidMount() {
     console.log(this.props);
     console.log(this.state.blog_id);
-    axios.get(`/api/perfectlyimperfect${this.state.blog_id}`)
+    axios.get(`/api/perfectlyimperfect/blog/${this.state.blog_id}`)
       .then(res => {
         console.log(res);
         this.setState({data: res.data})
@@ -63,9 +63,9 @@ class BlogRead extends React.Component {
             <h1 id="blog_title">{this.state.data[5]}</h1>
             <h6 id="blog-date">{Moment(this.state.data[9]).format('MMMM Do, YYYY')}</h6>
             <div className='social-share'>
-            <FacebookShareButton children='' url={`http://perfectlyimperfect.herokuapp.com${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
-            <GooglePlusShareButton url={`http://perfectlyimperfect.herokuapp.com${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
-            <TwitterShareButton url={`http://perfectlyimperfect.herokuapp.com${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
+            <FacebookShareButton children='' url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
+            <GooglePlusShareButton url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
+            <TwitterShareButton url={`http://perfectlyimperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
             </div>
             <ReactAudioPlayer
               src="my_audio_file.ogg"
