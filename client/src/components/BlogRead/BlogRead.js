@@ -20,7 +20,7 @@ class BlogRead extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-        blog_id: this.props.location.pathname,
+        blog_id: this.props.location.params.id,
         data: [],
         blog: ''
     }
