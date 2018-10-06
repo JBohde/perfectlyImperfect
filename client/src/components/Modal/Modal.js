@@ -13,7 +13,9 @@ import {
       
       this.state = {
         dd1: false,
-        modal1: false
+        modal1: false,
+        name: '',
+        email: ''
       };
       this.dropdownToggle = this.dropdownToggle.bind(this);
     }
@@ -34,6 +36,22 @@ import {
       });
       console.log(this.state);
     }
+    handleChangeName = event => {
+      console.log(this.state.name);
+      const { name, value } = event.target;
+      this.setState({
+        [name]: value
+      });
+      
+  }
+    handleChangeEmail = event => {
+      console.log(this.state.email);
+      const { name, value } = event.target;
+      this.setState({
+        [name]: value
+      });
+      
+  }
     
     render() {
       return (      
@@ -43,14 +61,22 @@ import {
               {this.props.modalHeader}
              </ModalHeader>
              <ModalBody>
-               {this.props.modalBody}
+               {/* {this.props.modalBody} */}
+               <label>Name:</label>
+                <input type="text" name='name' value={this.state.name} onChange={this.handleChangeName} className="form-control" />
+                <label>Email:</label>
+                <input type="email" name='email' value={this.state.email} onChange={this.handleChangeEmail} className="form-control" />
                <div>
                <Button id="close-btn" onClick={this.closeModal.bind(this, 'modal1')}>
                Close
                </Button>
+               <Button id="subscribe-btn" onClick={this.handleSubcribe.bind(this)}>
+               Subscribe
+               </Button>
                </div>
              </ModalBody>
           </Modal>
+          <br/>
           <Button outline color="primary" id={this.props.id} onClick={this.showModal.bind(this, 'modal1')}>
             {this.props.openLabel}
           </Button>

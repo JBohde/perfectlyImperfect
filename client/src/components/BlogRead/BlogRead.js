@@ -27,13 +27,9 @@ class BlogRead extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
-    console.log(this.state.blog_id);
     axios.get(`/api/perfectlyimperfect/blog/${this.state.blog_id}`)
       .then(res => {
-        console.log(res);
         this.setState({data: res.data})
-        console.log(this.state.data);
         this.formatBlog();
       })
       .catch(err => console.log(err));

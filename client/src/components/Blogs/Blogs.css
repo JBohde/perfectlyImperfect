@@ -62,8 +62,12 @@
 
 @media screen and (max-width:568px) {
     #main-blog,
-    #summary {
+    #summary,
+    .card {
         width: 100%;
         height: auto;
+    }
+    .card {
+        margin-top: 5px;
     }
 }

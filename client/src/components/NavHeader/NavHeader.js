@@ -38,7 +38,7 @@ class NavHeader extends React.Component {
               id='subscribe'
               openLabel="SUBSCRIBE"
               modalHeader='Perfectly Imperfect'
-              modalBody='SUBSCRIBE HERE!'
+              // modalBody='SUBSCRIBE HERE!'
             />
           </div>
         </div>
