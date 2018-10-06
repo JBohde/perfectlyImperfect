@@ -63,9 +63,9 @@ class BlogRead extends React.Component {
             <h1 id="blog_title">{this.state.data[5]}</h1>
             <h6 id="blog-date">{Moment(this.state.data[9]).format('MMMM Do, YYYY')}</h6>
             <div className='social-share'>
-            <FacebookShareButton children='' url={`http://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
-            <GooglePlusShareButton url={`http://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
-            <TwitterShareButton url={`http://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
+            <FacebookShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
+            <GooglePlusShareButton url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
+            <TwitterShareButton url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
             </div>
             <br/>
             <ReactAudioPlayer
