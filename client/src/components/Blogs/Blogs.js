@@ -50,7 +50,7 @@ class Blogs extends React.Component {
                 src={blog.img}
                 blog_title={blog.title}
                 blog_date={Moment(blog.date).format('MMMM Do, YYYY')}
-                blog_text={Parser([blog.body.slice(0, 40), "...", blog.body.slice(40, 40)].join(''))}
+                blog_text={Parser([blog.body.slice(0, 55), "...", blog.body.slice(40, 40)].join(''))}
                 link={blog._id}
               />
         ))
