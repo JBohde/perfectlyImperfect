@@ -72,6 +72,7 @@ import {
                 <label>Email:</label>
                 <input type="email" name='email' value={this.state.email} onChange={this.handleChangeEmail} className="form-control" />
                <div>
+                 <br/>
                <Button id="close-btn" onClick={this.closeModal.bind(this, 'modal1')}>
                Close
                </Button>
