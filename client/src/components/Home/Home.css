@@ -14,11 +14,11 @@
 
 #react-player {
     width: 100%;
-    height: 78.5%;
+    height: 500px;
 }
 
 #home {
-    background-image: url("https://images.pexels.com/photos/633488/pexels-photo-633488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1000");
+    background-image: url("https://images.pexels.com/photos/37487/pexels-photo-37487.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     min-height: 400px;
     position: relative;
     opacity: 0.90;
