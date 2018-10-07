@@ -14,6 +14,7 @@ import {
 
 } from 'react-share';
 import Moment from "moment";
+import { GridLoader } from 'react-spinners';
 import './BlogRead.css';
 
 class BlogRead extends React.Component {
@@ -22,7 +23,11 @@ class BlogRead extends React.Component {
     this.state = {
         blog_id: this.props.match.params.id,
         data: [],
-        blog: ''
+        blog_image: '',
+        blog_title: '',
+        blog_date: '',
+        blog: '',
+        loading: true
     }
   }
 
@@ -40,12 +45,18 @@ class BlogRead extends React.Component {
   formatBlog = () => {
     const format = Object.keys(this.state.data).map(key => this.state.data[key])
     this.setState({data: format});
-    this.setState({ blog: this.state.data[6]});
+    this.setState({ 
+      blog_image: this.state.data[7], 
+      blog_title: this.state.data[5], 
+      blog_date: this.state.data[8], 
+      blog: this.state.data[6]
+    });
     const text = this.state.blog;
     const textID = ' id="first_para"';
-    var addedID = [text.slice(0, 2), textID, text.slice(2)].join('');
-    let blog = document.querySelector('#blog');
-    blog.innerHTML = addedID;
+    const addedID = [text.slice(0, 2), textID, text.slice(2)].join('');
+    document.querySelector('#blog').innerHTML = addedID;
+    document.querySelector('#blog-container').style.display = 'block';
+    this.setState({loading : false})
   }
 
   render() {
@@ -53,15 +64,23 @@ class BlogRead extends React.Component {
       <div>
           <NavBar />
           <NavHeader />
-          <Container>
-            <img id ="blog-image" src={this.state.data[7]} alt="blog-pic"/>
+          <div id='ring-holder'>
+            <GridLoader
+              loading={this.state.loading}
+              size={25}
+              marginTop={'10px'}
+              color={'#2E5077'}
+            />
+          </div>
+          <Container id="blog-container">
+            <img id ="blog-image" src={this.state.blog_image} alt="blog-pic"/>
             <br />
-            <h1 id="blog_title">{this.state.data[5]}</h1>
-            <h6 id="blog-date">{Moment(this.state.data[9]).format('MMMM Do, YYYY')}</h6>
+            <h1 id="blog_title">{this.state.blog_title}</h1>
+            <h6 id="blog-date">{Moment(this.state.blog_date).format('MMMM Do, YYYY')}</h6>
             <div className='social-share'>
             <FacebookShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
-            <GooglePlusShareButton url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
-            <TwitterShareButton url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
+            <GooglePlusShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
+            <TwitterShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
             </div>
             <br/>
             <ReactAudioPlayer

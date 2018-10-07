@@ -23,9 +23,10 @@ class Home extends React.Component {
                 <div id="react-player">
                     <ReactPlayer url='https://www.youtube.com/watch?v=LG8wGsOL15I' width="100%" height="100%" />
                 </div>
+                <div id='home-logo'><img src="./assets/pi-logo.jpg" alt="home-logo"/></div>
                 <div id='home'>
                     <h1 className='welcome'>PERFECTLY IMPERFECT</h1>
-                    <p className="welcome">Insecurity, confusion, and mishap are as much a part of my make up as confidence, certainty, and perfection. Neither side defines me, it is the presence and   experiencing of both that make me wholly human. As I learn to value the aim of my efforts more than perception, value the journey more than the destination, and give more than Itake, I get to share the experiences and lessons with you all. I hope to provide a place where mental, spiritual, emotional and simply LIFE experiences and information are shared with the purpose of heightening awareness, unity, and growth.
+                    <p className="welcome">Insecurity, confusion, and mishap are as much a part of my make up as confidence, certainty, and perfection. Neither side defines me, it is the presence and   experiencing of both that make me wholly human. As I learn to value the aim of my efforts more than perception, value the journey more than the destination, and give more than I take, I get to share the experiences and lessons with you all. I hope to provide a place where mental, spiritual, emotional and simply LIFE experiences and information are shared with the purpose of heightening awareness, unity, and growth.
                     </p>
                     <h3 className="welcome">Happy Seeking!</h3>
                     <div className="color-overlay"></div>

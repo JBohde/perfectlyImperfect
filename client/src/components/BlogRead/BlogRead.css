@@ -1,3 +1,12 @@
+#ring-holder {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#blog-container {
+    display:none;
+}
 
 #blog-image {
     width: 75%;

@@ -7,6 +7,7 @@ import NavHeader from "../NavHeader";
 import { Row, Col, Container } from 'reactstrap';
 import BlogCard from "../BlogCard";
 import Moment from "moment";
+import { GridLoader } from 'react-spinners';
 import "./Blogs.css";
 
 class Blogs extends React.Component {
@@ -17,7 +18,8 @@ class Blogs extends React.Component {
             main: [],
             main_text: '',
             blogs: [],
-            showBlogs: false
+            showBlogs: false,
+            loading: true
         }
     }
 
@@ -25,7 +27,7 @@ class Blogs extends React.Component {
         axios.get(`/api/perfectlyimperfect/admin/posts`)
         .then(res => {
             this.setState({data: res.data, main: res.data[0]});
-            console.log(this.state.data);
+            this.setState({ loading: false })
         })
     }
 
@@ -36,7 +38,7 @@ class Blogs extends React.Component {
                     <img className="img-fluid" id="main-blog" src={blog.img} alt="blog-pic"/>
                     <div id="summary">
                         <h3 id="main-title">{blog.title}</h3>
-                        <h6 id="main-date">{Moment(blog.date).format('MMMM Do, YYYY')}</h6>
+                        <h6 id="main-date">{Moment(blog.published).format('MMMM Do, YYYY')}</h6>
                         {Parser([blog.body.slice(0, 250), "...", blog.body.slice(250, 250)].join(''))}
                         <Link to={{ pathname: `/blog/${blog._id}`, params: { data: this.state } }} className="btn btn-primary" id="main-blog-read">READ MORE</Link>
                     </div>
@@ -49,7 +51,7 @@ class Blogs extends React.Component {
                 key={blog._id}
                 src={blog.img}
                 blog_title={blog.title}
-                blog_date={Moment(blog.date).format('MMMM Do, YYYY')}
+                blog_date={Moment(blog.published).format('MMMM Do, YYYY')}
                 blog_text={Parser([blog.body.slice(0, 55), "...", blog.body.slice(40, 40)].join(''))}
                 link={blog._id}
               />
@@ -58,6 +60,14 @@ class Blogs extends React.Component {
             <div>
               <NavBar />
               <NavHeader />
+                <div id='ring-holder'>
+                  <GridLoader
+                    loading={this.state.loading}
+                    size={25}
+                    marginTop={'10px'}
+                    color={'#2E5077'}
+                  />
+                </div>
                     {allBlogs.slice(allBlogs.length - 1)}
                 <Row>
                 <Container>
