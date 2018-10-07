@@ -73,11 +73,11 @@ import {
                 <input type="email" name='email' value={this.state.email} onChange={this.handleChangeEmail} className="form-control" />
                <div>
                  <br/>
-               <Button id="close-btn" onClick={this.closeModal.bind(this, 'modal1')}>
-               Close
-               </Button>
-               <Button id="subscribe-btn" onClick={this.handleSubcribe}>
+                 <Button id="subscribe-btn" onClick={this.handleSubcribe}>
                Subscribe
+               </Button>
+               <Button id="close-btn" onClick={this.closeModal.bind(this, 'modal1')}>
+               Cancel
                </Button>
                </div>
              </ModalBody>

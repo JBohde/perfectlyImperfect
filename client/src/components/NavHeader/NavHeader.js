@@ -55,17 +55,17 @@ class NavHeader extends React.Component {
                 <NavLink href="/blogs">BLOG</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+                <DropdownToggle href="/inspiration" nav caret>
                  INSPIRATION
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
+                  <DropdownItem href="/mustsee">
                     MUST SEES
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem href="/books">
                     BOOK SUGGESTIONS
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem href="/podcasts">
                     PODCASTS
                   </DropdownItem>
                 </DropdownMenu>

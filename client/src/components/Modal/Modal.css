@@ -1,3 +1,15 @@
-#close-btn {
+#close-btn,
+#subscribe-btn {
     float: right;
+    margin: 2px;
+}
+
+#close-btn {
+    background-color: #E63946;
+    color: #ffffff;
+}
+
+#subscribe-btn {
+    background-color: #2E5077;
+    color: #ffffff;
 }

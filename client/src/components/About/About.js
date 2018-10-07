@@ -6,10 +6,6 @@ import "./About.css";
 
 class About extends React.Component {
 
-    state = {
-
-    }
-
     render() {
         return ( 
         <div>
