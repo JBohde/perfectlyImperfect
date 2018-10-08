@@ -84,7 +84,7 @@ class BlogRead extends React.Component {
             </div>
             <br/>
             <ReactAudioPlayer
-              src="my_audio_file.ogg"
+              src="./sample.ogg"
               autoPlay
               controls
             />
