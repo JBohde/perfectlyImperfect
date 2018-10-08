@@ -21,10 +21,12 @@
     /* width: 50%; */
 }
 
-input#icon-button-file {
+input#icon-button-file,
+input#icon-button-file-audio,
+input#icon-button-file-video {
     display: none;
 }
 
 label {
-    margin: 5px;
+    margin: 15px;
 }

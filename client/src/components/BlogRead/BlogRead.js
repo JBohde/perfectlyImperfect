@@ -3,7 +3,7 @@ import axios from "axios";
 import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
 import { Container } from 'reactstrap';
-import ReactAudioPlayer from 'react-audio-player';
+// import ReactAudioPlayer from 'react-audio-player';
 import {
   FacebookShareButton,
   GooglePlusShareButton,
@@ -83,9 +83,8 @@ class BlogRead extends React.Component {
             <TwitterShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
             </div>
             <br/>
-            <ReactAudioPlayer
-              src="./Black_Panther_Theme.mp3"
-              autoPlay
+            <audio
+              type="Test1.m4a"
               controls
             />
             <div id="blog"></div>

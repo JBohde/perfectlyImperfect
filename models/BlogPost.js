@@ -20,6 +20,9 @@ const blogPost = new Schema({
         type: String,
         require: true,
       },
+      audio: {
+        type: String
+      },
       published: {
         type: Date,
         default: Date.now

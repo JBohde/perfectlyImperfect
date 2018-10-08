@@ -61,7 +61,7 @@ module.exports = {
   },
 
   // PUT route for updating posts
-  update: function(req, res) {
+  updatePost: function(req, res) {
     db.BlogPost.update(req.body,
       {  where: { id: req.body.id } })
       .then(function(dbPost) {

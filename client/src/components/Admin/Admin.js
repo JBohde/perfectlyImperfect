@@ -19,6 +19,7 @@ class Admin extends React.Component {
             blog_image: 'http://placehold.it/350x250',
             image_name: '',
             blog_audio: '',
+            audio_name: '',
             blog_video: ''
         }
         this.handleBodyChange = this.handleBodyChange.bind(this)
@@ -28,7 +29,7 @@ class Admin extends React.Component {
     componentDidMount () {
         axios.get(`/api/perfectlyimperfect/admin/posts`)
         .then(res => {
-            this.setState(res.data);
+            this.setState({data: res.data});
             console.log(res.data);
         })
     }
@@ -77,6 +78,7 @@ class Admin extends React.Component {
         let files = event.target.files;
         let reader = new FileReader();
         reader.readAsDataURL(files[0]);
+        this.setState({ audio_name: files[0].name })
         reader.onload = event => {
             this.setState({ 
                 blog_audio: event.target.result
@@ -108,7 +110,6 @@ class Admin extends React.Component {
         return (
             <div>
                 <NavBar />
-                {/* <h1>THIS IS THE ADMIN PAGE</h1> */}
                 <Row>
                     <Col xs={12} md={1} lg={1}></Col>
                     <Col xs={12} md={7} lg={7}>
@@ -124,14 +125,14 @@ class Admin extends React.Component {
                                   onChange={this.handleTitleChange} 
                                   placeholder="Enter title here" 
                                 />
-                                <Label for="blog_image"><h5>Image</h5></Label>
+                                <Label for="blog_summary"><h5>SUMMARY QUOTE</h5></Label>
                                 <Input 
                                   type="text" 
-                                  name="blog_image" 
-                                  value={this.state.image_name} 
-                                  id="imgInput" 
-                                  onChange={this.handleImgChange} 
-                                  placeholder="Enter image link here" 
+                                  name="blog_summary" 
+                                  value={this.state.blog_summary} 
+                                  id="summaryInput" 
+                                  onChange={this.handleSummaryChange} 
+                                  placeholder="Enter quote here" 
                                 />
 		                      </FormGroup>
 	                        </Form>
@@ -148,20 +149,26 @@ class Admin extends React.Component {
                             <div id='placeholder'>
                                 <img className='img-fluid' src={this.state.blog_image} alt='selected_file'/>
                             </div>
-                            <span>
+                            
                                 <Input type="file" name='file' accept="image/*" onChange={this.handleImgChange} id="icon-button-file" />
                                 <Label htmlFor="icon-button-file">
                                     <i className="fas fa-camera-retro fa-2x"></i>
                                 </Label>
-                                <Input type="file" name='file' accept="video/*" onChange={this.handleVideoChange} id="icon-button-file" />
-                                <Label htmlFor="icon-button-file">
-                                    <i className="fas fa-video fa-2x"></i>
-                                </Label>
-                                <Input type="file" name='file' accept="audio/*" onChange={this.handleVideoChange} id="icon-button-file" />
-                                <Label htmlFor="icon-button-file">
+                                <Label>{this.state.image_name}</Label>
+                            <div>
+                               
+                            <Input type="file" name='audio-file' accept="audio/*" onChange={this.handleAudioChange} id="icon-button-file-audio" />
+                                <Label htmlFor="icon-button-file-audio">
                                 <i className="fas fa-microphone-alt fa-2x"></i>
                                 </Label>
-                            </span>
+                                <Label>{this.state.audio_name}</Label>
+                            </div>
+
+                                <Input type="file" name='video-file' accept="video/*" onChange={this.handleVideoChange} id="icon-button-file-video" />
+                                <Label htmlFor="icon-button-file-video">
+                                    <i className="fas fa-video fa-2x"></i>
+                                </Label>
+                                <Label>{this.state.video_name}</Label>
                         </div>
                         <Button
                           id='submit-blog'

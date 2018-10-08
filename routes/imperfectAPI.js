@@ -6,10 +6,10 @@ const blogController = require("../controllers/blogController");
   router.route("/perfectlyimperfect/admin/posts")
     .get(blogController.findAll) //get all blog posts
     .post(blogController.addPost) //add a new post
-    .put(blogController.update) // update with new post
+    .put(blogController.updatePost) // update with new post
 
   router.route("/perfectlyimperfect/posts/category/:category")
-    .get(blogController.findAll) // Get route for returning posts of a specific category
+    .get(blogController.findByCategory) // Get route for returning posts of a specific category
 
   router.route("/perfectlyimperfect/blog/:id")
     .get(blogController.findOne) //find a specific post
