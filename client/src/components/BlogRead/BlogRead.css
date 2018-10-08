@@ -21,6 +21,21 @@ h1#blog_title {
     font-family: 'Montserrat', serif;
 }
 
+.quote-hr {
+    margin: 20px;
+}
+
+.quotes {
+    font-size: 25px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+#quote {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .social-share {
     display: flex;
     justify-content: center;

@@ -49,12 +49,18 @@ class BlogRead extends React.Component {
       blog_image: this.state.data[7], 
       blog_title: this.state.data[5], 
       blog_date: this.state.data[8], 
-      blog: this.state.data[6]
+      blog: this.state.data[6],
+      blog_quote: "Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense!"
     });
     const text = this.state.blog;
     const textID = ' id="first_para"';
     const addedID = [text.slice(0, 2), textID, text.slice(2)].join('');
-    document.querySelector('#blog').innerHTML = addedID;
+    const blogText = document.querySelector('#blog');
+    blogText.innerHTML = addedID;
+    const quote = document.createElement("div");
+    quote.setAttribute('id', 'quote');
+    quote.innerHTML = `<hr class='quote-hr'><div class='quotes'>"${this.state.blog_quote}"</div><hr class='quote-hr'>`;
+    blogText.childNodes[2].prepend(quote);
     document.querySelector('#blog-container').style.display = 'block';
     this.setState({loading : false})
   }
