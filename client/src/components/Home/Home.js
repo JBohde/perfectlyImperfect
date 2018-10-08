@@ -2,7 +2,6 @@ import React from "react";
 import NavBar from "../NavBar";
 import NavHeader from "../NavHeader";
 import { Row, Col, Container } from 'reactstrap';
-import ReactPlayer from 'react-player'
 import "./Home.css";
 
 class Home extends React.Component {
@@ -20,8 +19,8 @@ class Home extends React.Component {
             <Row>
               <Col xs={12} sm={12} md={1} lg={1} xl={1}></Col>
               <Col xs={12} sm={12} md={10} lg={10} xl={10}>
-                <div id="react-player">
-                    <ReactPlayer url='https://www.youtube.com/watch?v=LG8wGsOL15I' width="100%" height="100%" />
+                <div className="video-container">
+                    <iframe  title="home-video" className="video-display" src="https://www.youtube.com/embed/GVG4wgCqeEQ" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
                 </div>
                 <div id='home'>
                     <h1 className='welcome'>PERFECTLY IMPERFECT</h1>

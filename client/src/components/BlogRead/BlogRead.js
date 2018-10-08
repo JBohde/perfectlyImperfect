@@ -84,7 +84,8 @@ class BlogRead extends React.Component {
             </div>
             <br/>
             <audio
-              type="Test1.m4a"
+              type="audio/mpeg"
+              src="../Sample.ogg"
               controls
             />
             <div id="blog"></div>

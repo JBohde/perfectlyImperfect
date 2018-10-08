@@ -60,7 +60,7 @@ import {
     
     render() {
       return (      
-        <div>
+        <React.Fragment>
            <Modal isOpen={this.state.modal1} toggle={this.closeModal.bind(this, 'modal1')}>
              <ModalHeader toggle={this.closeModal.bind(this, 'modal1')}>
               {this.props.modalHeader}
@@ -86,7 +86,7 @@ import {
           <Button outline color="primary" id={this.props.id} onClick={this.showModal.bind(this, 'modal1')}>
             {this.props.openLabel}
           </Button>
-        </div>
+        </React.Fragment>
       );
     }
   }
