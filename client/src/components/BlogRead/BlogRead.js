@@ -60,7 +60,8 @@ class BlogRead extends React.Component {
     const quote = document.createElement("div");
     quote.setAttribute('id', 'quote');
     quote.innerHTML = `<hr class='quote-hr'><div class='quotes'>"${this.state.blog_quote}"</div><hr class='quote-hr'>`;
-    blogText.childNodes[2].prepend(quote);
+    const x = document.querySelector("#blog").childElementCount;
+    blogText.childNodes[Math.floor(x/2)].prepend(quote);
     document.querySelector('#blog-container').style.display = 'block';
     this.setState({loading : false})
   }
