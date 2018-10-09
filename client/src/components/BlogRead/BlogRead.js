@@ -45,12 +45,13 @@ class BlogRead extends React.Component {
   formatBlog = () => {
     const format = Object.keys(this.state.data).map(key => this.state.data[key])
     this.setState({data: format});
+    console.log(this.state.data);
     this.setState({ 
-      blog_image: this.state.data[7], 
+      blog_image: this.state.data[8], 
       blog_title: this.state.data[5], 
-      blog_date: this.state.data[8], 
+      blog_date: this.state.data[9], 
       blog: this.state.data[6],
-      blog_quote: "Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense!"
+      blog_quote: this.state.data[7]
     });
     const text = this.state.blog;
     const textID = ' id="first_para"';

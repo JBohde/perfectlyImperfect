@@ -16,6 +16,10 @@ const blogPost = new Schema({
         type: String,
         require: true,
       },
+      quote: {
+        type: String,
+        require: true,
+      },
       img: {
         type: String,
         require: true,

@@ -16,6 +16,7 @@ class Admin extends React.Component {
             data: '',
             blog_title: '',
             blog_body: '',
+            blog_quote: '',
             blog_image: 'http://placehold.it/350x250',
             image_name: '',
             blog_audio: '',
@@ -50,14 +51,13 @@ class Admin extends React.Component {
         console.log(this.state.blog_body);
     }
 
-    // handleImgChange = event => {
-    //     console.log(event);
-    //     const { name, value } = event.target;
-    //     this.setState({
-    //         [name]: value
-    //     });
-    //     console.log(this.state.blog_image);
-    //   }
+    handleQuoteChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+        console.log(this.state.blog_quote);
+      }
 
     handleImgChange = event => {
         console.log(event.target.files);
@@ -94,10 +94,10 @@ class Admin extends React.Component {
       }
 
     submitBlog = (e) => {
-        const blogObj = { title: this.state.blog_title, body: this.state.blog_body, img: this.state.blog_image };
+        const blogObj = { title: this.state.blog_title, body: this.state.blog_body, quote: this.state.blog_quote, img: this.state.blog_image };
         console.log(blogObj);
         axios.post(`/api/perfectlyimperfect/admin/posts`, blogObj)
-            .then(res => { this.setState({ blog_title: "", blog_body: "", blog_image: "http://placehold.it/350x250", image_name: "" }); })
+            .then(res => { this.setState({ blog_title: "", blog_body: "", blog_quote: "", blog_image: "http://placehold.it/350x250", image_name: "" }); })
             .then(() => {
                 axios.get(`/api/perfectlyimperfect/admin/posts`)
                   .then(res => { this.setState(res.data); })
@@ -125,13 +125,13 @@ class Admin extends React.Component {
                                   onChange={this.handleTitleChange} 
                                   placeholder="Enter title here" 
                                 />
-                                <Label for="blog_summary"><h5>SUMMARY QUOTE</h5></Label>
+                                <Label for="blog_quote"><h5>SUMMARY QUOTE</h5></Label>
                                 <Input 
                                   type="text" 
-                                  name="blog_summary" 
-                                  value={this.state.blog_summary} 
-                                  id="summaryInput" 
-                                  onChange={this.handleSummaryChange} 
+                                  name="blog_quote" 
+                                  value={this.state.blog_quote} 
+                                  id="quoteInput" 
+                                  onChange={this.handleQuoteChange} 
                                   placeholder="Enter quote here" 
                                 />
 		                      </FormGroup>

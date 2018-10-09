@@ -36,8 +36,8 @@ app.get("*", function (req, res) {
 mongoose.Promise = Promise;
 
 // Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/perfectlyImperfect");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_51nqr405:bpia74oio81p7r8iqti4f4u34p@ds123783.mlab.com:23783/heroku_51nqr405");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/perfectlyImperfect");
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_51nqr405:bpia74oio81p7r8iqti4f4u34p@ds123783.mlab.com:23783/heroku_51nqr405");
 app.listen(PORT, function () {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
