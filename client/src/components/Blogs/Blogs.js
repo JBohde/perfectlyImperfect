@@ -39,7 +39,7 @@ class Blogs extends React.Component {
                     <div id="summary">
                         <h3 id="main-title">{blog.title}</h3>
                         <h6 id="main-date">{Moment(blog.published).format('MMMM Do, YYYY')}</h6>
-                        {Parser([blog.body.slice(0, 250), "...", blog.body.slice(250, 250)].join(''))}
+                        {Parser([blog.body.slice(0, 500), ".......", blog.body.slice(500, 500)].join(''))}
                         <Link to={{ pathname: `/blog/${blog._id}`, params: { data: this.state } }} className="btn btn-primary" id="main-blog-read">READ MORE</Link>
                     </div>
                 </div>
