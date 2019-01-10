@@ -30,7 +30,7 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/shop/:id" component={Shop} />
           <Route path="/cart/:id" component={Cart} />
-          <Route path="/admin" component={Admin} /> 
+          <Route path="/admin" component={Admin} />
         </div>
         <Footer />
       </div>
