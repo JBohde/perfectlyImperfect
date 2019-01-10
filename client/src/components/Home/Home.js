@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../NavBar";
+import NavBar from "../Navbar";
 import NavHeader from "../NavHeader";
 import { Row, Col, Container } from 'reactstrap';
 import "./Home.css";

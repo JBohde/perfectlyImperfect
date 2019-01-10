@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Parser from 'html-react-parser';
-import NavBar from "../NavBar";
+import NavBar from "../Navbar";
 import NavHeader from "../NavHeader";
 import { Row, Col, Container } from 'reactstrap';
 import BlogCard from "../BlogCard";

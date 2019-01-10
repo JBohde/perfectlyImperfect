@@ -6,7 +6,7 @@ import 'react-quill/dist/quill.snow.css'
 import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap'; 
 // import Uploader from "../FileUploader";
 // import Button from "../Button";
-import NavBar from "../NavBar";
+import NavBar from "../Navbar";
 
 
 class Admin extends React.Component {

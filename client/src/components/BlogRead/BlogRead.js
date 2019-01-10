@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from "axios";
-import NavBar from "../NavBar";
+import NavBar from "../Navbar";
 import NavHeader from "../NavHeader";
 import { Container } from 'reactstrap';
 // import ReactAudioPlayer from 'react-audio-player';
