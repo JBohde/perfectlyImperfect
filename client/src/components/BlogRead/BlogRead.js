@@ -91,11 +91,10 @@ class BlogRead extends React.Component {
             <TwitterShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
             </div>
             <br/>
-            <audio
-              type="audio/mpeg"
-              src="../Sample.ogg"
-              controls
-            />
+            <audio controls>
+              <source id="src_mp3" type="audio/mp3" src="" />
+              <source id="src_ogg" type="audio/ogg" src="../Sample.ogg"/>
+            </audio>
             <div id="blog"></div>
           </Container>
       </div>
