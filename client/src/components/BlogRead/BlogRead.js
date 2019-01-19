@@ -92,8 +92,7 @@ class BlogRead extends React.Component {
             </div>
             <br/>
             <audio controls>
-              <source id="src_ogg" type="audio/ogg" src="../https://perfectly-imperfect.herokuapp.com/Sample.ogg" />
-              <source id="src_ogg" type="audio/ogg" src="../Sample.ogg"/>
+              <source id="src_ogg" type="audio/ogg" src="https://perfectly-imperfect.herokuapp.com/Sample.ogg" />
             </audio>
             <div id="blog"></div>
           </Container>
