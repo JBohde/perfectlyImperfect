@@ -7,7 +7,7 @@ import "./Home.css";
 class Home extends React.Component {
 
     state = {
-      
+
     }
 
     render() {
@@ -20,7 +20,10 @@ class Home extends React.Component {
               <Col xs={12} sm={12} md={1} lg={1} xl={1}></Col>
               <Col xs={12} sm={12} md={10} lg={10} xl={10}>
                 <div className="video-container">
-                    <iframe  title="home-video" className="video-display" src="https://www.youtube.com/embed/GVG4wgCqeEQ" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+                    {/* <iframe  title="home-video" className="video-display" src="https://www.youtube.com/embed/GVG4wgCqeEQ" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe> */}
+                    <video width="400" controls>
+                    <source type="video/mp4" src="../Video.MOV" />
+                    </video>
                 </div>
                 <div id='home'>
                     <h1 className='welcome'>PERFECTLY IMPERFECT</h1>
@@ -29,7 +32,7 @@ class Home extends React.Component {
                     <h3 className="welcome">Happy Seeking!</h3>
                     <div className="color-overlay"></div>
                 </div>
-               
+
               </Col>
           <Col xs={12} sm={12} md={1} lg={1} xl={1}></Col>
           </Row>

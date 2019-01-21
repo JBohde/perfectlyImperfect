@@ -92,7 +92,7 @@ class BlogRead extends React.Component {
             </div>
             <br/>
             <audio controls>
-              <source type="audio/mpeg" src="https://perfectly-imperfect.herokuapp.com/demo-audio.mp3" />
+              <source type="audio/mpeg" src="https://perfectly-imperfect.herokuapp.com/Black_Panther_Theme.mp3" />
             </audio>
             <div id="blog"></div>
           </Container>
