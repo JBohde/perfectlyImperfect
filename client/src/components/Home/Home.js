@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import NavBar from "../Navbar";
 import NavHeader from "../NavHeader";
 import { Row, Col, Container } from 'reactstrap';
@@ -12,7 +12,7 @@ class Home extends React.Component {
 
     render() {
         return (
-        <div>
+        <Fragment>
             <NavBar />
             <NavHeader />
             <Container>
@@ -34,7 +34,7 @@ class Home extends React.Component {
           <Col xs={12} sm={12} md={1} lg={1} xl={1}></Col>
           </Row>
           </Container>
-        </div>
+        </Fragment>
         )
     }
 }

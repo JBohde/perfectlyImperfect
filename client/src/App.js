@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
+import NavBar from "./components/Navbar"
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Blogs from "./components/Blogs";
@@ -18,8 +19,9 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+      <Fragment>
+      <Route path="/(!admin)" component={NavBar}/>
       <div className="App">
-        <div className="App-content">
           <Route exact path="/" component={Home} />
           <Route path="/blogs" component={Blogs} />
           <Route path='/blog/:id' component={BlogRead} />
@@ -31,9 +33,10 @@ class App extends Component {
           <Route path="/shop/:id" component={Shop} />
           <Route path="/cart/:id" component={Cart} />
           <Route path="/admin" component={Admin} />
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      <Route path="/(!admin)" component={Footer}/>
+      </Fragment>
       </BrowserRouter>
     );
   }

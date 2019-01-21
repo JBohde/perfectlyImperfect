@@ -3,7 +3,8 @@ import axios from "axios";
 import "./Admin.css";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'
-import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap'; 
+import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+
 // import Uploader from "../FileUploader";
 // import Button from "../Button";
 import NavBar from "../Navbar";
@@ -45,8 +46,8 @@ class Admin extends React.Component {
     }
 
     handleBodyChange = value => {
-        this.setState({ 
-            blog_body: value 
+        this.setState({
+            blog_body: value
         })
         console.log(this.state.blog_body);
     }
@@ -66,7 +67,7 @@ class Admin extends React.Component {
         reader.readAsDataURL(files[0]);
         this.setState({ image_name: files[0].name })
         reader.onload = event => {
-            this.setState({ 
+            this.setState({
                 blog_image: event.target.result
             })
             console.log('img data ', event.target.result);
@@ -80,7 +81,7 @@ class Admin extends React.Component {
         reader.readAsDataURL(files[0]);
         this.setState({ audio_name: files[0].name })
         reader.onload = event => {
-            this.setState({ 
+            this.setState({
                 blog_audio: event.target.result
             })
             console.log('audio data ', event.target.result);
@@ -117,29 +118,29 @@ class Admin extends React.Component {
                             <Form>
 		                      <FormGroup>
 		                        <Label for="blog_title"><h5>Title</h5></Label>
-                                <Input 
-                                  type="text" 
-                                  name="blog_title" 
-                                  value={this.state.blog_title} 
-                                  id="titleInput" 
-                                  onChange={this.handleTitleChange} 
-                                  placeholder="Enter title here" 
+                                <Input
+                                  type="text"
+                                  name="blog_title"
+                                  value={this.state.blog_title}
+                                  id="titleInput"
+                                  onChange={this.handleTitleChange}
+                                  placeholder="Enter title here"
                                 />
                                 <Label for="blog_quote"><h5>SUMMARY QUOTE</h5></Label>
-                                <Input 
-                                  type="text" 
-                                  name="blog_quote" 
-                                  value={this.state.blog_quote} 
-                                  id="quoteInput" 
-                                  onChange={this.handleQuoteChange} 
-                                  placeholder="Enter quote here" 
+                                <Input
+                                  type="text"
+                                  name="blog_quote"
+                                  value={this.state.blog_quote}
+                                  id="quoteInput"
+                                  onChange={this.handleQuoteChange}
+                                  placeholder="Enter quote here"
                                 />
 		                      </FormGroup>
 	                        </Form>
                             <ReactQuill
-                              theme="snow" 
+                              theme="snow"
                               value={this.state.blog_body}
-                              onChange={this.handleBodyChange}  
+                              onChange={this.handleBodyChange}
                             />
 
                         </div>
@@ -149,14 +150,13 @@ class Admin extends React.Component {
                             <div id='placeholder'>
                                 <img className='img-fluid' src={this.state.blog_image} alt='selected_file'/>
                             </div>
-                            
+
                                 <Input type="file" name='file' accept="image/*" onChange={this.handleImgChange} id="icon-button-file" />
                                 <Label htmlFor="icon-button-file">
                                     <i className="fas fa-camera-retro fa-2x"></i>
                                 </Label>
                                 <Label>{this.state.image_name}</Label>
                             <div>
-                               
                             <Input type="file" name='audio-file' accept="audio/*" onChange={this.handleAudioChange} id="icon-button-file-audio" />
                                 <Label htmlFor="icon-button-file-audio">
                                 <i className="fas fa-microphone-alt fa-2x"></i>

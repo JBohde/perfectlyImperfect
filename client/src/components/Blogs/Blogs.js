@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Parser from 'html-react-parser';
 import NavBar from "../Navbar";
 import NavHeader from "../NavHeader";
-import { Row, Col, Container } from 'reactstrap';
+import { Col, Container } from 'reactstrap';
 import BlogCard from "../BlogCard";
 import Moment from "moment";
 import { GridLoader } from 'react-spinners';
@@ -33,8 +33,7 @@ class Blogs extends React.Component {
 
     render() {
         const allBlogs = this.state.data.map(blog => (
-            <Row key={blog._id}>
-                <div id="main-wrapper">
+                <div id="main-wrapper" key={blog._id}>
                     <img className="img-fluid" id="main-blog" src={blog.img} alt="blog-pic"/>
                     <div id="summary">
                         <h3 id="main-title">{blog.title}</h3>
@@ -43,7 +42,6 @@ class Blogs extends React.Component {
                         <Link to={{ pathname: `/blog/${blog._id}`, params: { data: this.state } }} className="btn btn-primary" id="main-blog-read">READ MORE</Link>
                     </div>
                 </div>
-             </Row>
         ))
 
         const blogCard = this.state.data.map(blog => (
@@ -57,7 +55,7 @@ class Blogs extends React.Component {
               />
         ))
         return (
-            <div>
+            <Fragment>
               <NavBar />
               <NavHeader />
                 <div id='ring-holder'>
@@ -69,7 +67,7 @@ class Blogs extends React.Component {
                   />
                 </div>
                     {allBlogs.slice(allBlogs.length - 1)}
-                <Row>
+                {/* <Row> */}
                 <Container>
                 <div className="blog-container">
                 <Col xs={12} sm={12} md={4} lg={4} xl={4} >
@@ -94,9 +92,9 @@ class Blogs extends React.Component {
                 </Col>
                 </div>
                 </Container>
-                </Row>
-            </div>
-        ) 
+                {/* </Row> */}
+            </Fragment>
+        )
     }
 }
 
