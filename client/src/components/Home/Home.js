@@ -33,7 +33,7 @@ class Home extends React.Component {
                     <h3 className="welcome">Happy Seeking!</h3>
                     <div className="color-overlay"></div>
                 </div>
-                {/* <AdSense /> */}
+                <AdSense />
               </Col>
           <Col xs={12} sm={12} md={1} lg={1} xl={1}></Col>
           </Row>

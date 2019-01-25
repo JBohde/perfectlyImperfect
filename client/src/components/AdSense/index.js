@@ -1,8 +1,12 @@
 import React from 'react';
 
-class AdSenseComponent extends React.Component {
+class AdSense extends React.Component {
   componentDidMount () {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    // (window.adsbygoogle = window.adsbygoogle || []).push({});
+    (window.adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8814263255628634",
+        enable_page_level_ads: true
+      });
   }
 
 render () {
@@ -11,10 +15,10 @@ render () {
           style={{ display: 'block' }}
           data-ad-client='ca-pub-8814263255628634'
           enable_page_level_ads='true'
-        //   data-ad-slot='12121212'
+          data-ad-slot=''
           data-ad-format='auto'
         />
     );
   }
 }
-export default AdSenseComponent;
+export default AdSense;
