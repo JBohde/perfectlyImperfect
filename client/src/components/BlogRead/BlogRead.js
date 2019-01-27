@@ -86,7 +86,7 @@ class BlogRead extends React.Component {
             <h1 id="blog_title">{this.state.blog_title}</h1>
             <h6 id="blog-date">{Moment(this.state.blog_date).format('MMMM Do, YYYY')}</h6>
             <div className='social-share'>
-            <FacebookShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
+            <FacebookShareButton windowWidth={500} windowHeight={400} children=''image={this.state.blog_image} quote={this.state.blog_title} url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
             <GooglePlusShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
             <TwitterShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
             </div>

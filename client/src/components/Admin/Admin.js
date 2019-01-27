@@ -101,7 +101,10 @@ class Admin extends React.Component {
             .then(res => { this.setState({ blog_title: "", blog_body: "", blog_quote: "", blog_image: "http://placehold.it/350x250", image_name: "" }); })
             .then(() => {
                 axios.get(`/api/perfectlyimperfect/admin/posts`)
-                  .then(res => { this.setState(res.data); })
+                  .then(res => {
+                      this.setState(res.data);
+                      console.log(this.state);
+                  })
             })
       .catch(err => console.log(err));
     }
