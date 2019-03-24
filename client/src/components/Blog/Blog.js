@@ -15,9 +15,9 @@ import {
 } from 'react-share';
 import Moment from "moment";
 import { GridLoader } from 'react-spinners';
-import './BlogRead.css';
+import './Blog.css';
 
-class BlogRead extends React.Component {
+class Blog extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -46,10 +46,10 @@ class BlogRead extends React.Component {
     const format = Object.keys(this.state.data).map(key => this.state.data[key])
     this.setState({data: format});
     console.log(this.state.data);
-    this.setState({ 
-      blog_image: this.state.data[8], 
-      blog_title: this.state.data[5], 
-      blog_date: this.state.data[9], 
+    this.setState({
+      blog_image: this.state.data[8],
+      blog_title: this.state.data[5],
+      blog_date: this.state.data[9],
       blog: this.state.data[6],
       blog_quote: this.state.data[7]
     });
@@ -101,4 +101,4 @@ class BlogRead extends React.Component {
   }
 }
 
-export default BlogRead;
+export default Blog;

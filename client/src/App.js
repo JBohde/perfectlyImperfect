@@ -5,7 +5,7 @@ import NavBar from "./components/Navbar"
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Blogs from "./components/Blogs";
-import BlogRead from "./components/BlogRead";
+import Blog from "./components/Blog";
 import About from "./components/About";
 import MustSee from "./components/MustSee";
 import Books from "./components/Books";
@@ -25,7 +25,7 @@ class App extends Component {
       <div className="App">
           <Route exact path="/" component={Home} />
           <Route path="/blogs" component={Blogs} />
-          <Route path='/blog/:id' component={BlogRead} />
+          <Route path='/blog/:id' component={Blog} />
           <Route path="/inspiration" component={Inspiration} />
           <Route path="/mustsee" component={MustSee} />
           <Route path="/books" component={Books} />
