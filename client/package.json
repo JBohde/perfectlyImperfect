@@ -1,7 +1,6 @@
 {
   "name": "perfectly-imperfect",
   "version": "0.1.0",
-  "homepage": "/build",
   "proxy": "http://localhost:3001/",
   "author": "imperfect admin",
   "scripts": {
@@ -11,6 +10,7 @@
     "toolbox": "react-toolbox-themr",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://perfectly-imperfect.herokuapp.com",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
