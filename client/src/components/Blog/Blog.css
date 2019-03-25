@@ -62,7 +62,7 @@ div#blog ul {
 }
 
 
-p#first_para::first-letter {
+p#initial-paragraph::first-letter {
     color: #E63946;
     float: left;
     font-family: 'Cardo', sans-serif;

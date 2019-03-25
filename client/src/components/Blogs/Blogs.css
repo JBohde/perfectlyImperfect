@@ -29,9 +29,9 @@
     text-align: left;
     background-color:#4B9CD3;
     color: #fff;
-    /* padding: 45px 80px 45px 45px; */
     padding: 60px;
     height: 75vh;
+    overflow: hidden;
 }
 
 .card-body p {

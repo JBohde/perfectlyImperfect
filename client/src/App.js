@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
-import { Helmet } from 'react-helmet';
 import NavBar from "./components/Navbar"
 import Footer from "./components/Footer";
 import Home from "./components/Home";

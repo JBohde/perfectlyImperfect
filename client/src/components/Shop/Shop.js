@@ -4,7 +4,7 @@ import NavHeader from "../NavHeader";
 import "./Shop.css";
 
 class Shop extends React.Component {
-    
+
     state = {
 
     }

@@ -10,50 +10,54 @@ import Moment from "moment";
 import { GridLoader } from 'react-spinners';
 import "./Blogs.css";
 
+
 class Blogs extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: [],
-            main: [],
-            main_text: '',
             blogs: [],
-            showBlogs: false,
-            loading: true
-        }
+            loading: true,
+         };
+        this.renderCurrentBlog = this.renderCurrentBlog.bind(this);
     }
 
     componentDidMount () {
         axios.get(`/api/perfectlyimperfect/admin/posts`)
         .then(res => {
-            this.setState({data: res.data, main: res.data[0]});
-            this.setState({ loading: false })
+            this.setState({ blogs: res.data.reverse(), currentBlog: res.data[0], loading: false });
         })
     }
 
-    render() {
-        const allBlogs = this.state.data.map(blog => (
-                <div id="main-wrapper" key={blog._id}>
-                    <img className="img-fluid" id="main-blog" src={blog.img} alt="blog-pic"/>
-                    <div id="summary">
-                        <h3 id="main-title">{blog.title}</h3>
-                        <h6 id="main-date">{Moment(blog.published).format('MMMM Do, YYYY')}</h6>
-                        {Parser([blog.body.slice(0, 500), ".......", blog.body.slice(500, 500)].join(''))}
-                        <Link to={{ pathname: `/blog/${blog._id}`, params: { data: this.state } }} className="btn btn-primary" id="main-blog-read">READ MORE</Link>
-                    </div>
+    renderCurrentBlog = () => {
+        const { currentBlog } = this.state;
+        return (
+            <div id="main-wrapper" key={currentBlog._id}>
+                <img className="img-fluid" id="main-blog" src={currentBlog.img} alt="blog-pic"/>
+                <div id="summary">
+                    <h3 id="main-title">{currentBlog.title}</h3>
+                    <h6 id="main-date">{Moment(currentBlog.published).format('MMMM Do, YYYY')}</h6>
+                    {Parser([currentBlog.body.slice(0, 500), '....'].join(''))}
+                    <Link to={{ pathname: `/blog/${currentBlog._id}`}} className="btn btn-primary" id="main-blog-read">READ MORE</Link>
                 </div>
-        ))
+            </div>
+        )
+    }
 
-        const blogCard = this.state.data.map(blog => (
-              <BlogCard
-                key={blog._id}
-                src={blog.img}
-                blog_title={blog.title}
-                blog_date={Moment(blog.published).format('MMMM Do, YYYY')}
-                blog_text={Parser([blog.body.slice(0, 55), "...", blog.body.slice(40, 40)].join(''))}
-                link={blog._id}
-              />
-        ))
+    renderBlogCards = () => this.state.blogs.slice(1).map(blog => (
+        <Col xs={12} sm={12} md={4} lg={4} xl={4} >
+          <BlogCard
+            key={blog._id}
+            src={blog.img}
+            blog_title={blog.title}
+            blog_date={Moment(blog.published).format('MMMM Do, YYYY')}
+            blog_text={Parser([blog.body.slice(0, 35), '....'].join(''))}
+            link={blog._id}
+          />
+        </Col>
+    ))
+
+    render() {
+        const { blogs, currentBlog } = this.state;
         return (
             <Fragment>
               <NavBar />
@@ -66,33 +70,12 @@ class Blogs extends React.Component {
                     color={'#2E5077'}
                   />
                 </div>
-                    {allBlogs.slice(allBlogs.length - 1)}
-                {/* <Row> */}
+                    { currentBlog && this.renderCurrentBlog() }
                 <Container>
                 <div className="blog-container">
-                <Col xs={12} sm={12} md={4} lg={4} xl={4} >
-                    {blogCard.reverse().slice(1,2)}
-                </Col>
-                <Col xs={12} sm={12} md={4} lg={4} xl={4} >
-                {blogCard.slice(2,3)}
-                {/* <Media>
-                    <Media left bottom href="#">
-                    <Media object src="http://placehold.it/64x64" alt="Generic placeholder image" />
-                    </Media>
-                    <Media body>
-                    <Media heading>
-                        About Me
-                    </Media>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                    </Media>
-                </Media> */}
-                </Col>
-                <Col xs={12} sm={12} md={4} lg={4} xl={4} >
-                    {blogCard.slice(3,4)}
-                </Col>
+                    { blogs.length > 0 && this.renderBlogCards() }
                 </div>
                 </Container>
-                {/* </Row> */}
             </Fragment>
         )
     }

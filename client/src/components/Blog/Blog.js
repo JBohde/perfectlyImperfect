@@ -3,7 +3,6 @@ import axios from "axios";
 import NavBar from "../Navbar";
 import NavHeader from "../NavHeader";
 import { Container } from 'reactstrap';
-// import ReactAudioPlayer from 'react-audio-player';
 import {
   FacebookShareButton,
   GooglePlusShareButton,
@@ -14,6 +13,7 @@ import {
 
 } from 'react-share';
 import Moment from "moment";
+import Parser from 'html-react-parser';
 import { GridLoader } from 'react-spinners';
 import './Blog.css';
 
@@ -23,10 +23,14 @@ class Blog extends React.Component {
     this.state = {
         blog_id: this.props.match.params.id,
         data: [],
-        blog_image: '',
-        blog_title: '',
-        blog_date: '',
-        blog: '',
+        blog: {
+          _id: '',
+          title: '',
+          body: '',
+          quote: '',
+          img: '',
+          published: '',
+        },
         loading: true
     }
   }
@@ -34,43 +38,33 @@ class Blog extends React.Component {
   componentDidMount() {
     axios.get(`/api/perfectlyimperfect/blog/${this.state.blog_id}`)
       .then(res => {
-        this.setState({data: res.data})
-        this.formatBlog();
+        const formattedData = Object.keys(res).map(key => res[key])
+        this.setState({ data: res, blog: formattedData[0] })
       })
+      .then(() => this.insertQuote())
       .catch(err => console.log(err));
   }
 
 
+  insertQuote = () => {
+    const { blog: { quote } } = this.state;
+    const quoteDiv = document.createElement('div');
+    quoteDiv.innerHTML = `<hr class='quote-hr'><div class='quotes'>"${quote}"</div></hr>`;
 
-  formatBlog = () => {
-    const format = Object.keys(this.state.data).map(key => this.state.data[key])
-    this.setState({data: format});
-    console.log(this.state.data);
-    this.setState({
-      blog_image: this.state.data[8],
-      blog_title: this.state.data[5],
-      blog_date: this.state.data[9],
-      blog: this.state.data[6],
-      blog_quote: this.state.data[7]
-    });
-    const text = this.state.blog;
-    const textID = ' id="first_para"';
-    const addedID = [text.slice(0, 2), textID, text.slice(2)].join('');
-    const blogText = document.querySelector('#blog');
-    blogText.innerHTML = addedID;
-    const quote = document.createElement("div");
-    quote.setAttribute('id', 'quote');
-    quote.innerHTML = `<hr class='quote-hr'><div class='quotes'>"${this.state.blog_quote}"</div><hr class='quote-hr'>`;
-    const x = document.querySelector("#blog").childElementCount;
-    blogText.childNodes[Math.floor(x/2)].prepend(quote);
+    const blogDiv = document.querySelector('#blog')
+    blogDiv.childNodes[Math.floor(blogDiv.childElementCount/2)].prepend(quoteDiv);
+
     document.querySelector('#blog-container').style.display = 'block';
-    this.setState({loading : false})
+    this.setState({ loading : false })
   }
 
+
+
   render() {
+    const { blog: { _id, body, title, img, published, } } = this.state;
     return (
-      <div>
-          <NavBar />
+      <>
+        <NavBar />
           <NavHeader />
           <div id='ring-holder'>
             <GridLoader
@@ -81,22 +75,42 @@ class Blog extends React.Component {
             />
           </div>
           <Container id="blog-container">
-            <img id ="blog-image" src={this.state.blog_image} alt="blog-pic"/>
-            <br />
-            <h1 id="blog_title">{this.state.blog_title}</h1>
-            <h6 id="blog-date">{Moment(this.state.blog_date).format('MMMM Do, YYYY')}</h6>
-            <div className='social-share'>
-            <FacebookShareButton windowWidth={500} windowHeight={400} children=''image={this.state.blog_image} quote={this.state.blog_title} url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><FacebookIcon size={32} round={true}/></FacebookShareButton>
-            <GooglePlusShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><GooglePlusIcon size={32} round={true}/></GooglePlusShareButton>
-            <TwitterShareButton children='' url={`https://perfectly-imperfect.herokuapp.com/blog/${this.state.blog_id}`}><TwitterIcon size={32} round={true}/></TwitterShareButton>
-            </div>
-            <br/>
-            <audio controls>
-              <source type="audio/mpeg" src="https://perfectly-imperfect.herokuapp.com/Black_Panther_Theme.mp3" />
-            </audio>
-            <div id="blog"></div>
+            <img id ="blog-image" src={img} alt="blog-pic"/>
+              <h1 id="blog_title">{title}</h1>
+              <h6 id="blog-date">{ Moment(published).format('MMMM Do, YYYY') }</h6>
+                    <audio controls>
+                <source
+                  type="audio/mpeg"
+                  src="https://perfectly-imperfect.herokuapp.com/Black_Panther_Theme.mp3"
+                />
+              </audio>
+              <div id="blog">{Parser([body.slice(0, 2), ' id="initial-paragraph"', body.slice(2)].join(''))}</div>
+              <div className='social-share'>
+                <FacebookShareButton
+                  windowWidth={500}
+                  windowHeight={400}
+                  children=''
+                  image={img}
+                  quote={title}
+                  url={`https://perfectly-imperfect.herokuapp.com/blog/${_id}`}
+                >
+                  <FacebookIcon size={32} round={true}/>
+                </FacebookShareButton>
+                <GooglePlusShareButton
+                  children=''
+                  url={`https://perfectly-imperfect.herokuapp.com/blog/${_id}`}
+                >
+                  <GooglePlusIcon size={32} round={true}/>
+                </GooglePlusShareButton>
+                <TwitterShareButton
+                  children=''
+                  url={`https://perfectly-imperfect.herokuapp.com/blog/${_id}`}
+                >
+                  <TwitterIcon size={32} round={true}/>
+                </TwitterShareButton>
+              </div>
           </Container>
-      </div>
+      </>
     )
   }
 }
