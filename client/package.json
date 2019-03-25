@@ -1,6 +1,7 @@
 {
   "name": "perfectly-imperfect",
   "version": "0.1.0",
+  "homepage": "/build",
   "proxy": "http://localhost:3001/",
   "author": "imperfect admin",
   "scripts": {
