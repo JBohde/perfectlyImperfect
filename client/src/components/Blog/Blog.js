@@ -49,7 +49,7 @@ class Blog extends React.Component {
   insertQuote = () => {
     const { blog: { quote } } = this.state;
     const quoteDiv = document.createElement('div');
-    quoteDiv.innerHTML = `<hr class='quote-hr'><div class='quotes'>"${quote}"</div></hr>`;
+    quoteDiv.innerHTML = `<hr class='quote-hr'><div class='quotes'>"${quote}"</div><hr class='quote-hr'>`;
 
     const blogDiv = document.querySelector('#blog')
     blogDiv.childNodes[Math.floor(blogDiv.childElementCount/2)].prepend(quoteDiv);
