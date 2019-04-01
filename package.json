@@ -38,6 +38,8 @@
     "server": "node server.js",
     "client": "node scripts/start-client.js",
     "start": "concurrently \"node server.js\" \"npm run client\"",
-    "build": "node scripts/build.js"
-  }
+    "build": "node scripts/build.js",
+    "heroku-postbuild": "echo Skip build on Heroku"
+  },
+  "heroku-run-build-script": true
 }
