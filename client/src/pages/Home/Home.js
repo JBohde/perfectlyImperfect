@@ -22,6 +22,7 @@ class Home extends React.Component {
               </div>
               <div id="home">
                 <h1 className="welcome">PERFECTLY IMPERFECT</h1>
+                <AdSense />
                 <p className="welcome">
                   Insecurity, confusion, and mishap are as much a part of my
                   make up as confidence, certainty, and perfection. Neither side
@@ -37,7 +38,6 @@ class Home extends React.Component {
                 <h3 className="welcome">Happy Seeking!</h3>
                 <div className="color-overlay" />
               </div>
-              <AdSense />
             </Col>
             <Col xs={12} sm={12} md={1} lg={1} xl={1} />
           </Row>
