@@ -3,13 +3,21 @@
   --space: 2em 0;
 } */
 
+* {
+  margin: 0;
+}
+
 html,
 body {
-  display: flex;
-  flex-direction: column;
   font-family: 'Montserrat', serif;
   font-size: 16px;
   background-color: #f2f8fc;
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+  height: auto;
 }
 
 h1,
@@ -22,15 +30,4 @@ button,
 a {
   font-family: 'Cardo', sans-serif;
   text-align: center;
-}
-
-.Site {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-}
-.Site-content {
-  flex: 1 0 auto;
-  width: 100%;
 }

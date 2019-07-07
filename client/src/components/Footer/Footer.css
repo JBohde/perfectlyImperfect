@@ -1,10 +1,12 @@
 /* nav.footer.navbar.fixed-bottom */
+
 nav.footer.navbar {
   background-color: #4b9cd3;
   color: #fff;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 100px;
 }
 
 .footer-social {

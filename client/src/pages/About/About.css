@@ -1,5 +1,11 @@
 .about {
     margin: 0 auto;
-    width: 75%;
+    width: 65%;
     text-align: center;
+}
+
+@media screen and (max-width: 568px) {
+  .about {
+    width: 95%;
+  }
 }

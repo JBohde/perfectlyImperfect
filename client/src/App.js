@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import NavBar from './components/Navbar';
-import Footer from './components/Footer';
 import About from './pages/About';
 import Admin from './pages/Admin';
 import EditPodcast from './pages/Admin/EditPodcast';
@@ -19,10 +18,9 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="Site">
+        <div className="wrapper">
           <NavBar />
-          <div className="Site-content">
-            <Route path="/" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/blogs" component={Blogs} />
             <Route path="/blog/:id" component={Blog} />
             <Route path="/inspiration" component={Inspiration} />
@@ -34,8 +32,7 @@ class App extends Component {
             <Route path="/cart/:id" component={Cart} />
             <Route path="/admin" component={Admin} />
             <Route path="/edit/podcast" component={EditPodcast} />
-          </div>
-          <Footer />
+            <div className="push"></div>
         </div>
       </BrowserRouter>
     );

@@ -4,7 +4,7 @@ import { Navbar } from 'reactstrap';
 import './Footer.css';
 
 const Footer = () => (
-  <Navbar fixed="sticky" className="footer">
+  <Navbar className="footer">
     <div>
       <div className="footer-social">
         <a
