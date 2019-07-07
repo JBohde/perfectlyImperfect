@@ -6,11 +6,11 @@ import {
     ModalBody
   } from 'reactstrap';
   import './Modal.css';
-  
+
   class MyModal extends React.Component {
     constructor(props) {
       super(props);
-      
+
       this.state = {
         dd1: false,
         modal1: false,
@@ -19,7 +19,7 @@ import {
       };
       this.dropdownToggle = this.dropdownToggle.bind(this);
     }
-    
+
     dropdownToggle() {
       this.setState({
         dd1: !this.state.dd1
@@ -34,32 +34,23 @@ import {
       this.setState({
         [modal]: true
       });
-      console.log(this.state);
     }
     handleChangeName = event => {
-      console.log(this.state.name);
       const { name, value } = event.target;
-      this.setState({
-        [name]: value
-      });
-      
+      this.setState({ [name]: value });
   }
     handleChangeEmail = event => {
-      console.log(this.state.email);
       const { name, value } = event.target;
-      this.setState({
-        [name]: value
-      });
-      
+      this.setState({ [name]: value });
   }
 
     handleSubcribe = event => {
       console.log(this.state.name);
       console.log(this.state.email);
     }
-    
+
     render() {
-      return (      
+      return (
         <React.Fragment>
            <Modal isOpen={this.state.modal1} toggle={this.closeModal.bind(this, 'modal1')}>
              <ModalHeader toggle={this.closeModal.bind(this, 'modal1')}>
@@ -90,7 +81,6 @@ import {
       );
     }
   }
-  
+
 export default MyModal;
-  
-  
+

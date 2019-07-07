@@ -2,9 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
-// import Uploader from "../FileUploader";
-// import Button from "../Button";
+import { Button, Col, Form, FormGroup, Input, Label } from 'reactstrap';
 import NavBar from '../../components/Navbar';
 import './Admin.css';
 
@@ -12,7 +10,7 @@ class Admin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: '',
+      blogs: [],
       title: '',
       body: '',
       quote: '',
@@ -25,35 +23,26 @@ class Admin extends React.Component {
   }
   componentDidMount() {
     axios.get(`/api/perfectlyimperfect/admin/posts`).then(res => {
-      // this.setState({data: res.data});
-      console.log(res.data);
+      this.setState({ blogs: res.data});
     });
   }
 
-  handleTitleChange = event => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleBodyChange = value => {
-    this.setState({ blog_body: value });
+  handleEditorChange = value => {
+    this.setState({ body: value });
   };
 
-  handleQuoteChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
-    console.log(this.state.blog_quote);
-  };
-
-  handleImgChange = event => {
-    let files = event.target.files;
-    let reader = new FileReader();
+  handleImageChange = event => {
+    const files = event.target.files;
+    const reader = new FileReader();
     reader.readAsDataURL(files[0]);
-    this.setState({ image_name: files[0].name });
+    this.setState({ imageName: files[0].name });
     reader.onload = event => {
-      this.setState({ blog_image: event.target.result });
+      this.setState({ image: event.target.result });
     };
   };
 
@@ -61,9 +50,9 @@ class Admin extends React.Component {
     let files = event.target.files;
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
-    this.setState({ audio_name: files[0].name });
+    this.setState({ audioName: files[0].name });
     reader.onload = event => {
-      this.setState({ blog_audio: event.target.result });
+      this.setState({ audio: event.target.result });
     };
   };
 
@@ -74,98 +63,95 @@ class Admin extends React.Component {
   };
 
   submitBlog = e => {
+    const { title, body, quote, image } = this.state;
     const blogObj = {
-      title: this.state.blog_title,
-      body: this.state.blog_body,
-      quote: this.state.blog_quote,
-      img: this.state.blog_image,
+      title,
+      body,
+      quote,
+      image,
     };
-    console.log(blogObj);
     axios
       .post(`/api/perfectlyimperfect/admin/posts`, blogObj)
       .then(() => {
         this.setState({
-          blog_title: '',
-          blog_body: '',
-          blog_quote: '',
-          blog_image: null,
-          image_name: '',
+          title: '',
+          body: '',
+          quote: '',
+          image: null,
+          imageName: '',
         });
       })
       .then(() => {
         axios.get(`/api/perfectlyimperfect/admin/posts`).then(res => {
-          this.setState(res.data);
+          this.setState({ blogs: res.data });
         });
       })
       .catch(err => console.log(err));
   };
 
   render() {
+       const { title, body, quote, image } = this.state
     return (
-      <div>
+      <>
         <NavBar />
-        <Row>
-          <Col xs={12} md={1} lg={1} />
-          <Col xs={12} md={7} lg={7}>
+        <div className='admin-row'>
+          <Col xs={12} md={8} lg={8}>
             <div className="editor-wrapper">
               <Form>
                 <FormGroup>
-                  <Label for="blog_title">
+                  <Label for="title">
                     <h5>Title</h5>
                   </Label>
                   <Input
                     type="text"
-                    name="blog_title"
-                    value={this.state.blog_title}
+                    name="title"
+                    value={title}
                     id="titleInput"
-                    onChange={this.handleTitleChange}
+                    onChange={this.handleChange}
                     placeholder="Enter title here"
                   />
-                  <Label for="blog_quote">
+                  <Label for="quote">
                     <h5>SUMMARY QUOTE</h5>
                   </Label>
                   <Input
                     type="text"
-                    name="blog_quote"
-                    value={this.state.blog_quote}
+                    name="quote"
+                    value={quote}
                     id="quoteInput"
-                    onChange={this.handleQuoteChange}
+                    onChange={this.handleChange}
                     placeholder="Enter quote here"
                   />
                 </FormGroup>
               </Form>
               <ReactQuill
                 theme="snow"
-                value={this.state.blog_body}
-                onChange={this.handleBodyChange}
+                value={body}
+                onChange={this.handleEditorChange}
               />
             </div>
           </Col>
           <Col xs={12} md={4} lg={4}>
             <div className="uploader-wrapper">
-              <div id="placeholder">
                 <img
                   className="img-fluid"
-                  src={this.state.blog_image || 'https://placehold.it/350x250'}
+                  src={image || 'https://placehold.it/350x250'}
                   alt="selected_file"
                 />
-              </div>
-
+            <div id="input-wrapper">
               <Input
                 type="file"
-                name="file"
+                name="image"
                 accept="image/*"
-                onChange={this.handleImgChange}
+                onChange={this.handleImageChange}
                 id="icon-button-file"
               />
               <Label htmlFor="icon-button-file">
                 <i className="fas fa-camera-retro fa-2x" />
               </Label>
-              <Label>{this.state.image_name}</Label>
-              <div>
+              <Label>{this.state.imageName}</Label>
                 <Input
                   type="file"
-                  name="audio-file"
+                  name="audio"
                   accept="audio/*"
                   onChange={this.handleAudioChange}
                   id="icon-button-file-audio"
@@ -173,12 +159,11 @@ class Admin extends React.Component {
                 <Label htmlFor="icon-button-file-audio">
                   <i className="fas fa-microphone-alt fa-2x" />
                 </Label>
-                <Label>{this.state.audio_name}</Label>
-              </div>
+                <Label>{this.state.audioName}</Label>
 
               <Input
                 type="file"
-                name="video-file"
+                name="video"
                 accept="video/*"
                 onChange={this.handleVideoChange}
                 id="icon-button-file-video"
@@ -186,19 +171,19 @@ class Admin extends React.Component {
               <Label htmlFor="icon-button-file-video">
                 <i className="fas fa-video fa-2x" />
               </Label>
-              <Label>{this.state.video_name}</Label>
+              <Label>{this.state.videoName}</Label>
             </div>
             <Button
-              id="submit-blog"
-              color="success"
+              id="blog-submit"
               value="Submit"
               onClick={this.submitBlog.bind(this)}
             >
               SUBMIT BLOG
             </Button>
+            </div>
           </Col>
-        </Row>
-      </div>
+        </div>
+      </>
     );
   }
 }

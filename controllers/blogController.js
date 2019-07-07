@@ -35,7 +35,6 @@ module.exports = {
 
   // POST route for saving a new post
   addPost: function(req, res) {
-    console.log(req.body);
     db.BlogPost.create({
       author: req.body.author,
       title: req.body.title,

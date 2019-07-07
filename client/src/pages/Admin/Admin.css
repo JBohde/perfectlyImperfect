@@ -12,26 +12,25 @@
     background-color: #ffffff;
 }
 
-.editor-wrapper,
-.uploader-wrapper {
-    padding: 10px;
+.admin-row {
+  display: flex;
+  justify-content: space-between;
 }
 
-#placeholder {
-    width: 350px;
-    height: 250px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /* width: 50%; */
+.editor-wrapper,
+.uploader-wrapper {
+    margin: 2em 0;
+}
+
+#input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: .5em;
 }
 
 input#icon-button-file,
 input#icon-button-file-audio,
 input#icon-button-file-video {
     display: none;
-}
-
-label {
-    margin: 15px;
 }

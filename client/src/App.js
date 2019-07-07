@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <>
-          <div className="App Site">
+          <div className="Site">
             <div className="Site-content">
               <Route exact path="/" component={Home} />
               <Route path="/blogs" component={Blogs} />
