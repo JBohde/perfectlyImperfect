@@ -14,7 +14,7 @@ class AdSense extends React.Component {
           data-ad-client="ca-pub-8814263255628634"
           enable_page_level_ads="true"
           data-ad-slot=""
-          data-ad-format="auto"
+          data-ad-format="responsive"
         />
       </div>
     );
