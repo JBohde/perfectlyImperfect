@@ -30,7 +30,6 @@
     "style-loader": "^0.23.1"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
     "nodemon": "^1.18.10"
   },
   "scripts": {
@@ -38,6 +37,7 @@
     "server": "node server.js",
     "client": "node scripts/start-client.js",
     "start": "concurrently \"node server.js\" \"npm run client\"",
+    "dev": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
     "heroku-postbuild": "echo Skip build on Heroku"
   },

@@ -7,6 +7,11 @@ nav.footer.navbar{
     align-items: center;
 }
 
+.footer-social {
+    display: flex;
+    justify-content: center;
+}
+
 .footer-img {
     width: 35px;
     height: 35px;
