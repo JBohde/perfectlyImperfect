@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import AdSense from '../../components/AdSense';
-import NavBar from '../../components/Navbar';
 import NavHeader from '../../components/NavHeader';
 import './Home.css';
 
@@ -11,7 +10,6 @@ class Home extends React.Component {
   render() {
     return (
       <Fragment>
-        <NavBar />
         <NavHeader />
         <Container>
           <Row>

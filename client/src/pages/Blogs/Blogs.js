@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { GridLoader } from 'react-spinners';
 import { Col, Container } from 'reactstrap';
 import BlogCard from '../../components/BlogCard';
-import NavBar from '../../components/Navbar';
 import NavHeader from '../../components/NavHeader';
 import './Blogs.css';
 
@@ -76,7 +75,6 @@ class Blogs extends React.Component {
     const { blogs, currentBlog } = this.state;
     return (
       <Fragment>
-        <NavBar />
         <NavHeader />
         <div id="ring-holder">
           <GridLoader

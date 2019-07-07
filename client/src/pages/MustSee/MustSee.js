@@ -1,7 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { Container } from 'reactstrap';
-import NavBar from '../../components/Navbar';
 import NavHeader from '../../components/NavHeader';
 import './MustSee.css';
 
@@ -17,8 +16,7 @@ class MustSee extends React.Component {
       slidesToScroll: 1,
     };
     return (
-      <div>
-        <NavBar />
+      <>
         <Container>
           <NavHeader />
           <div className="iframe-container">
@@ -73,7 +71,7 @@ class MustSee extends React.Component {
             </div>
           </Slider>
         </Container>
-      </div>
+      </>
     );
   }
 }

@@ -12,7 +12,6 @@ import {
 } from 'react-share';
 import { GridLoader } from 'react-spinners';
 import { Container } from 'reactstrap';
-import NavBar from '../../components/Navbar';
 import NavHeader from '../../components/NavHeader';
 import './Blog.css';
 
@@ -67,7 +66,6 @@ class Blog extends React.Component {
     } = this.state;
     return (
       <>
-        <NavBar />
         <NavHeader />
         <div id="ring-holder">
           <GridLoader

@@ -1,14 +1,12 @@
 import React from 'react';
 import { Container } from 'reactstrap';
-import NavBar from '../../components/Navbar';
 import NavHeader from '../../components/NavHeader';
 import './About.css';
 
 class About extends React.Component {
   render() {
     return (
-      <div>
-        <NavBar />
+      <>
         <NavHeader />
         <Container>
           <h1>About Me</h1>
@@ -79,7 +77,7 @@ class About extends React.Component {
             </p>
           </div>
         </Container>
-      </div>
+      </>
     );
   }
 }

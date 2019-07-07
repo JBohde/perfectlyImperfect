@@ -3,7 +3,6 @@ import React from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Button, Col, Form, FormGroup, Input, Label } from 'reactstrap';
-import NavBar from '../../components/Navbar';
 import './Admin.css';
 
 class Admin extends React.Component {
@@ -23,7 +22,7 @@ class Admin extends React.Component {
   }
   componentDidMount() {
     axios.get(`/api/perfectlyimperfect/admin/posts`).then(res => {
-      this.setState({ blogs: res.data});
+      this.setState({ blogs: res.data });
     });
   }
 
@@ -90,11 +89,10 @@ class Admin extends React.Component {
   };
 
   render() {
-       const { title, body, quote, image } = this.state
+    const { title, body, quote, image } = this.state;
     return (
       <>
-        <NavBar />
-        <div className='admin-row'>
+        <div className="admin-row">
           <Col xs={12} md={8} lg={8}>
             <div className="editor-wrapper">
               <Form>
@@ -132,23 +130,23 @@ class Admin extends React.Component {
           </Col>
           <Col xs={12} md={4} lg={4}>
             <div className="uploader-wrapper">
-                <img
-                  className="img-fluid"
-                  src={image || 'https://placehold.it/350x250'}
-                  alt="selected_file"
-                />
-            <div id="input-wrapper">
-              <Input
-                type="file"
-                name="image"
-                accept="image/*"
-                onChange={this.handleImageChange}
-                id="icon-button-file"
+              <img
+                className="img-fluid"
+                src={image || 'https://placehold.it/350x250'}
+                alt="selected_file"
               />
-              <Label htmlFor="icon-button-file">
-                <i className="fas fa-camera-retro fa-2x" />
-              </Label>
-              <Label>{this.state.imageName}</Label>
+              <div id="input-wrapper">
+                <Input
+                  type="file"
+                  name="image"
+                  accept="image/*"
+                  onChange={this.handleImageChange}
+                  id="icon-button-file"
+                />
+                <Label htmlFor="icon-button-file">
+                  <i className="fas fa-camera-retro fa-2x" />
+                </Label>
+                <Label>{this.state.imageName}</Label>
                 <Input
                   type="file"
                   name="audio"
@@ -161,25 +159,25 @@ class Admin extends React.Component {
                 </Label>
                 <Label>{this.state.audioName}</Label>
 
-              <Input
-                type="file"
-                name="video"
-                accept="video/*"
-                onChange={this.handleVideoChange}
-                id="icon-button-file-video"
-              />
-              <Label htmlFor="icon-button-file-video">
-                <i className="fas fa-video fa-2x" />
-              </Label>
-              <Label>{this.state.videoName}</Label>
-            </div>
-            <Button
-              id="blog-submit"
-              value="Submit"
-              onClick={this.submitBlog.bind(this)}
-            >
-              SUBMIT BLOG
-            </Button>
+                <Input
+                  type="file"
+                  name="video"
+                  accept="video/*"
+                  onChange={this.handleVideoChange}
+                  id="icon-button-file-video"
+                />
+                <Label htmlFor="icon-button-file-video">
+                  <i className="fas fa-video fa-2x" />
+                </Label>
+                <Label>{this.state.videoName}</Label>
+              </div>
+              <Button
+                id="blog-submit"
+                value="Submit"
+                onClick={this.submitBlog.bind(this)}
+              >
+                SUBMIT BLOG
+              </Button>
             </div>
           </Col>
         </div>
