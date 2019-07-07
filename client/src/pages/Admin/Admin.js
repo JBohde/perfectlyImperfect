@@ -14,7 +14,7 @@ class Admin extends React.Component {
       title: '',
       body: '',
       quote: '',
-      image: 'https://placehold.it/350x250',
+      image: '',
       imageName: '',
       audio: '',
       audioName: '',

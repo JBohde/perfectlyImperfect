@@ -21,7 +21,7 @@ class App extends Component {
         <>
           <div className="Site">
             <div className="Site-content">
-              <Route exact path="/" component={Home} />
+              <Route path="/" component={Home} />
               <Route path="/blogs" component={Blogs} />
               <Route path="/blog/:id" component={Blog} />
               <Route path="/inspiration" component={Inspiration} />
