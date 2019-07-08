@@ -8,6 +8,10 @@
   display: none;
 }
 
+#blog {
+  margin: 2em 0;
+}
+
 #blog-image {
   width: 75%;
   height: auto;
@@ -45,6 +49,7 @@ h1#blog_title {
   display: flex;
   justify-content: center;
   align-content: space-between;
+  margin: .5em;
 }
 
 .SocialMediaShareButton {

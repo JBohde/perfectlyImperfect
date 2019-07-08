@@ -20,19 +20,18 @@ class App extends Component {
       <BrowserRouter>
         <div className="wrapper">
           <NavBar />
-            <Route exact path="/" component={Home} />
-            <Route path="/blogs" component={Blogs} />
-            <Route path="/blog/:id" component={Blog} />
-            <Route path="/inspiration" component={Inspiration} />
-            <Route path="/mustsee" component={MustSee} />
-            <Route path="/books" component={Books} />
-            <Route path="/podcasts" component={Podcasts} />
-            <Route path="/about" component={About} />
-            <Route path="/shop/:id" component={Shop} />
-            <Route path="/cart/:id" component={Cart} />
-            <Route path="/admin" component={Admin} />
-            <Route path="/edit/podcast" component={EditPodcast} />
-            <div className="push"></div>
+          <Route exact path="/" component={Home} />
+          <Route path="/blogs" component={Blogs} />
+          <Route path="/blog/:id" component={Blog} />
+          <Route path="/inspiration" component={Inspiration} />
+          <Route path="/mustsee" component={MustSee} />
+          <Route path="/books" component={Books} />
+          <Route path="/podcasts" component={Podcasts} />
+          <Route path="/about" component={About} />
+          <Route path="/shop/:id" component={Shop} />
+          <Route path="/cart/:id" component={Cart} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/edit/podcast" component={EditPodcast} />
         </div>
       </BrowserRouter>
     );

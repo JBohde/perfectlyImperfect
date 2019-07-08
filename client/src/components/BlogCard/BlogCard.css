@@ -1,13 +1,46 @@
 .card {
-      width: 265px;
-      height: 300px;
-      margin: 0 auto;
-      /* overflow: hidden; */
+  width: auto;
+  height: 300px;
+  margin: 0 auto;
+  /* overflow: hidden; */
+}
+
+.card {
+  margin-top: 1em;
+  font-size: 0.85em;
+  height: auto;
 }
 
 .card-title {
-      font-size: 16px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-body {
+  background-color: #4b9cd3;
+  color: #fff;
+  min-height: 200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-body p {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 736px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
 }

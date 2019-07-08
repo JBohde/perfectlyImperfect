@@ -4,7 +4,7 @@
     text-align: center;
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 480px) {
   .about {
     width: 95%;
   }

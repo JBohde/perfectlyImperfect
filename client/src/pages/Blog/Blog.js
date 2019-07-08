@@ -79,21 +79,6 @@ class Blog extends React.Component {
           <img id="blog-image" src={img} alt="blog-pic" />
           <h1 id="blog_title">{title}</h1>
           <h6 id="blog-date">{Moment(published).format('MMMM Do, YYYY')}</h6>
-          <div id="blog-audio">
-            <audio controls>
-              <source
-                type="audio/mpeg"
-                src="https://perfectly-imperfect.herokuapp.com/Black_Panther_Theme.mp3"
-              />
-            </audio>
-          </div>
-          <div id="blog">
-            {Parser(
-              [body.slice(0, 2), ' id="initial-paragraph"', body.slice(2)].join(
-                '',
-              ),
-            )}
-          </div>
           <div className="social-share">
             <FacebookShareButton
               windowWidth={500}
@@ -117,6 +102,21 @@ class Blog extends React.Component {
             >
               <TwitterIcon size={32} round={true} />
             </TwitterShareButton>
+          </div>
+          <div id="blog-audio">
+            <audio controls>
+              <source
+                type="audio/mpeg"
+                src="https://perfectly-imperfect.herokuapp.com/Black_Panther_Theme.mp3"
+              />
+            </audio>
+          </div>
+          <div id="blog">
+            {Parser(
+              [body.slice(0, 2), ' id="initial-paragraph"', body.slice(2)].join(
+                '',
+              ),
+            )}
           </div>
         </Container>
       </>
